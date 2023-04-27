@@ -1,0 +1,57 @@
+.sarfraj{
+    width:250px;
+    height:100px;
+    background: blueviolet;
+}
+.sarfraj:hover{
+    background: green;
+}
+
+.bold{
+    font-weight: bold;
+}
+.redBg{
+    background-color: blue;
+
+}
+.orange{
+    background-color: orange;
+}
+.text{
+    color: brown;
+}
+
+.bigFont{
+   font-size: 40px; 
+
+}
+ body{
+    margin: 0;
+ }
+nav{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+    background: red;
+}
+
+.box{
+    box-sizing: border-box;
+    border: 2px  solid black;
+    width: 100px;
+    padding: 10px;
+    height: 100px;
+    background: #009879;
+}
+
+.world{
+    padding: 20px;
+    font-weight: bold;
+    color: rgb(12, 12, 158);
+    background-color: rgb(0, 255, 106);
+    font-style: italic;
+}
