@@ -9,10 +9,9 @@ Number.prototype.toCelcius = function(){
 console.log(f.toCelcius())
  
 
-// file upload button:---
+// file upload button:-----------------
 
-// target:----
-
+// target
 const realFileBtn = document.getElementById('real-file');
 
 const customBtn = document.getElementById('custom-btn');
@@ -54,7 +53,7 @@ customBtn.addEventListener('click',function(){
 
 // set file name to customtext
 
-realFileBtn.addEventListener('click',function(){
+realFileBtn.addEventListener('change',function(){
 
   if(realFileBtn.value){ 
     const file = realFileBtn.value.split('\\');
@@ -65,6 +64,3 @@ realFileBtn.addEventListener('click',function(){
 }
     
 })
-
-
-

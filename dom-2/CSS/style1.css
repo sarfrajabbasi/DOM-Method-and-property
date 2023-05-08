@@ -21,3 +21,19 @@
 
 }
 
+/* Observer pattern */
+
+.square{
+    width: 100px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: black;
+    color: white;
+    padding-top: 40px;
+    font-size: 50px;
+    border-radius: 10px;
+    font-family: sans-serif;
+}

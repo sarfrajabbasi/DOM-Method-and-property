@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style1.css">
+    <title>index-1</title>
+</head>
+<body>
+    <input type="file" id="real-file" hidden = 'hidden'>
+    <button type="button" id="custom-btn">CHOOSE FILE</button>
+    <span id = "custom-text">No file choosen,yet</span>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="square" id="elementObserver1"></div>
+    <hr>
+    <button type="button" onclick="model.increment()">Increment</button>
+</body>
+<!-- <script src="../JS/dom2-1.js"></script> -->
+
+<!-- Observer-Pattern -->
+<script src="../JS/numbermodel.js"></script>
+<script src="../JS/elementObserver.js"></script>
+<script src="../JS/consoleObs.js"></script>
+<script src="../JS/historyObs.js"></script>
+<script>
+    const model = new NumberModel();
+    const eObs1 = new ElementObserver("elementObserver1") ;
+    const consoleObs  =  new ConsoleObs();
+    const historyObs = new HistoryObs
+    model.addObserver(eObs1);
+    model.addObserver(consoleObs);
+    model.addObserver(historyObs)
+    model.notifyObserver()
+</script>
+<script src="../JS/dom2(Array)-2.js"></script>
+</html>
