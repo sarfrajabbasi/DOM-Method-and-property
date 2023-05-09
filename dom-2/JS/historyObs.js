@@ -13,6 +13,6 @@ class HistoryObs {
                 msg+= this.colorHistory[i] +' '
             }
         }
-        console.log('%c%s',`background:${this.colorHistory[1]};font-size:15px;padding:10px;font-weight:bold`,msg);
+        // console.log('%c%s',`background:${this.colorHistory[1]};font-size:15px;padding:10px;font-weight:bold`,msg);
     }
 }
