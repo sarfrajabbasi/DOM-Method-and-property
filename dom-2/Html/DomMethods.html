@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style2.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/style2.css" />
     <title>Dom-Method</title>
-</head>
-<body>
+  </head>
+  <body>
     <h2 id="number">0</h2>
-    <hr>
+    <hr />
     <button id="btn">Change</button>
 
-    <p>
-        X: <span id ="x-value"></span>
-    </p>
-    <p>
-        Y: <span id ="y-value"></span>
-    </p>
+    <p>X: <span id="x-value"></span></p>
+    <p>Y: <span id="y-value"></span></p>
 
     <!-- haschange -->
     <p id="hasUpdate"></p>
@@ -25,40 +21,153 @@
 
     <!-- node.insertBefore -->
     <ul id="myList">
-        <li id="galaxy">Samsung</li>
-        <li>Apple</li>
-        <li>GEONNE</li>
-        <li>RealMe</li>
-        <li>Lava</li>
+      <li id="galaxy">Samsung</li>
+      <li>Apple</li>
+      <li>GEONNE</li>
+      <li>RealMe</li>
+      <li>Lava</li>
     </ul>
     <div id="box"></div>
-<br><br><br>
+    <br /><br /><br />
     <!-- local Storage -->
 
     <fieldset>
-        <legend>Insert-Data</legend>
+      <legend>Insert-Data</legend>
 
-        <input id="inpKey" type="text" placeholder="Enter key..">
+      <input id="inpKey" type="text" placeholder="Enter key.." />
 
-        <input id="inpValue" type="text" placeholder="Enter value..">
-        <button type="button" id ="btnInsert">Insert Data</button>
+      <input id="inpValue" type="text" placeholder="Enter value.." />
+      <button type="button" id="btnInsert">Insert Data</button>
     </fieldset>
 
     <fieldset>
-        <legend>Local-Strorage</legend>
-        <div id="isOutput"></div>
+      <legend>Local-Strorage</legend>
+      <div id="isOutput"></div>
     </fieldset>
     <button type="button" id="btnClear">Clear storage</button>
 
-
     <!-- COPY-ClipBoard -->
-    <h2 style="user-select: all;">COPY CLIPBOARD</h2>
-    <input type="text" id="textCopy">
+    <h2 style="user-select: all">COPY CLIPBOARD</h2>
+    <input type="text" id="textCopy" />
     <button type="button" id="btn1">COPY</button>
 
     <!-- outHTML -->
     <h2 id="outer">i'm gonna change the ouetr HTML</h2>
 
-</body>
-<script src="../JS/MethodDOM.js"></script>
+    <!-- offline and online -->
+    <p id="ooUpdate" style="text-align: center; font-weight: bold">
+      I'm not sure yet!
+    </p>
+
+    <!-- sending POST data with AJAX in JS -->
+
+    <p id="serverResponse">hello</p>
+
+    <!-- Progress-Bar -->
+    <div id="progress-bar">
+      <div id="progress-bar-value">75%</div>
+      <div id="progress-bar-fill"></div>
+    </div>
+    <button id="btn4">Increase</button>
+
+    <button id="btn5">Decrease</button>
+
+    <!-- preventDefault method -->
+    <a href="http://www.youtube.com" id="ytlink" target="_blank">YOUTUBE</a>
+    <p>Enter Link:-- <input type="checkbox" name="" id="cb" /></p>
+
+    NickName: <input type="text" id="myInp" />
+
+    <!-- window.parent property -->
+
+    <!-- <h1 id="A1">Main page (parent)</h1> -->
+    <!-- <iframe src="../Html/ifram.html" frameborder="1" style="width: 600px;height: 300px;"></iframe> -->
+
+    <!-- Delaying your JS code with the setTimeout -->
+    <br /><br /><br />
+    <button id="show-message">Show Message</button>
+    <button id="cancel-msg">cancel</button>
+
+    <br /><br /><br />
+
+    <h1 id="timer-text">0</h1>
+    <button id="btn-start">Start Timer</button>
+    <button id="stopTimer">Stop Timer</button>
+
+    <!-- Populate table with AJAX -->
+    <p>the fallowing table will be filled with AJAx</p>
+    <table id="ranking" class="table">
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>Full Name</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Conner</td>
+          <td>2300</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Ezio</td>
+          <td>2000</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Loba</td>
+          <td>1500</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- creating a characters Remaining Counter -->
+    <p>Please fill out the form below</p>
+    <textarea id="myTextArea"></textarea>
+    <div id="mytextArea-remaining">250 chars remaining</div>
+
+    <!-- creating AJAx Submit form using -->
+
+    <div class="form">
+      <ul id="form-message"></ul>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" spellcheck="false"> 
+      
+      <label for="password">Password</label>
+      <input type="text" id="password">
+
+      <button  type="submit" id="btn-login">Login</button>
+    </div>
+<br><br><br>
+    <!-- Scroll event in JS -->
+    <a target="_blank" href="../Html/scroll.html" class = "scroll">ScrollEvent</a>
+
+    <!-- submit Form -->
+    <form id="myForm1" class="form">
+
+      <label for="username" >Username</label>
+      <input type="text" name="username" id="username1"> 
+
+      <label for="password" >Password</label>
+      <input type="text" name="password" id="password1">
+
+      <button type="submit" id="login1">Login</button>
+
+    </form>
+
+    <!-- transition event -->
+    <div id="box1"></div>
+    <button id="btnGo">GO!</button>
+
+    <!-- Load Event -->
+    <img src="../images/pexels-sam-kolder-2387873.jpg" style="max-width: 100%;" id="myImg">
+    <img src="../images/pexels-maurizio-dongiovanni-6338976.jpg" style="max-width: 100%;" id="myImg1">
+
+  </body>
+  <script src="../JS/MethodDOM.js"></script>
+  <script src="../JS/MethodDOM2.js"></script>
 </html>

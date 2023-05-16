@@ -362,3 +362,4 @@ let c2_func = printCoordinates.bind(c2,"done");
 
 console.log(c1_func());
 console.log(c2_func());
+

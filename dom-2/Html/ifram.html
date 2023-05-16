@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFrame</title>
+</head>
+<body>
+ <p id="pa1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium provident voluptates laboriosam assumenda pariatur nostrum id rerum a fugiat numquam.</p>
+    <script>
+     
+        const parentDocument =  parent.document;
+
+        const parentHeading = parentDocument.getElementById('A1');
+        console.log(parentDocument);
+        const pa =document.getElementById('pa1');
+        pa.innerHTML += parentHeading
+    </script>
+</body>
+</html>

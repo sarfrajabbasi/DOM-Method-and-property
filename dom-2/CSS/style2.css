@@ -15,7 +15,7 @@ fieldset{
     margin-bottom: 20px;
 }
 
-div{
+/* div{
     font-weight: bold;
     color: whitesmoke;
     background-color:blue;
@@ -24,5 +24,159 @@ div{
     text-align: center;
     font-size: 30px;
     font-family: sans-serif;
+} */
+
+#progress-bar{
+position: relative;
+width: 400px;
+height: 30px;
+border: 2px solid black;
+margin-bottom: 40px;
+
 }
-    
+#progress-bar-fill{
+    height: 100%;
+    background: #29bd29;
+    transition: width 0.5s;
+}
+
+#progress-bar-value{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+#btn4,#btn5{
+    width: 80px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    align-items: center;
+    border: 2px solid black;
+}
+
+#btn4:hover{
+    background: rgb(83, 81, 81);
+}
+#btn5:hover{
+    background: rgb(83, 81, 81);
+}
+
+table,th,td{
+    width: 400px;
+    height: auto;
+    font-family: sans-serif;
+    border: 1px solid black;
+    text-align: center;
+
+}
+th{
+    background-color: #29bd29;
+}
+td:hover{
+    background-color: rgb(105, 128, 230);
+}
+
+/* Char Count remaining */
+
+#myTextArea{
+    height: 150px;
+    width: 100%;
+}
+
+#mytextArea-remaining{
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: right;
+}
+
+#form-message{
+    background-color: rgb(255, 232, 232);
+    color: red;
+    border: 1px solid red;
+    display: none;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px 25px;
+    max-width: 250px;
+
+}
+
+#btn-login,#login1{
+    background-color: rgb(52, 159, 185);
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+input{
+    width: 80%;
+    margin: 10px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+label{
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.scroll{
+    color: rgb(73, 110, 212);
+    font-size: 30px;
+    font-family: sans-serif;
+}
+  
+.scroll:link {
+    color: red;
+  }
+  
+  /* visited link */
+  .scroll:visited {
+    color: green;
+  }
+  
+  /* mouse over link */
+  .scroll:hover {
+    color:hotpink ;
+  }
+  
+  /* selected link */
+  .scroll:active {
+    color: blue;
+  }
+
+
+
+  #box1{
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #29bd29;
+    border: 2px solid black;
+    border-top: 4px solid black;
+    border-right: 4px solid black;
+    transition: width 0.5s;
+  }
+
+  #btnGo:hover{
+    width: 60px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: red;
+
+  }
+  
