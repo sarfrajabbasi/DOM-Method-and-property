@@ -244,11 +244,11 @@ console.log(printName({
 const arr4 = ["sarf","pokemon","neon","luka","koila"];
 const obj4 = {
     name:'kallu',
-    father:'ballu',
+    father:'madrasi bahllu',
     age:120,
     occupation:"murder",
     contact:{
-        sniper:'madrasi bahllu',
+        sniper:'meethi churi',
         weaponSupplier:'007Nepali',
     }
 
@@ -256,3 +256,83 @@ const obj4 = {
 console.table(arr4);
 console.table(obj4);
 
+// Array map method:---------
+
+const existingArray = ['docde',"dom",'js',"defined"];
+
+const array3 = existingArray.map(function(e,index,array){
+    console.log(index,array);
+    return index + " how are you "+ e +" " + this.name 
+},{
+    name:"LOL"
+})
+console.log(array3);
+
+// Array Flat() Method:-----------
+
+const array1 = [1,2,3,4,[5,[2,3],[34,[45,[45,[5,4,[5,[5,6,[7]]]]]]]],[23,45]];
+
+const numbersFlat = array1.flat(Infinity)
+console.log(numbersFlat);
+
+// Array flatMap() methods:---
+
+const pair = [
+    [1,5],
+    [6,8],
+    [11,9],
+]
+
+ const result5 = pair.flatMap((pair)=>{
+    return [
+        pair[0] + pair[1]
+    ];
+ });
+
+ console.log(result5);
+
+//  constant variable:-------
+var names2  = [ 1,2,3,4 ]
+for(const name of names2){
+    console.log(name);
+}
+
+
+
+// Code-Block:-------
+const elements = [];
+
+{
+    const ele = document.createElement('div');
+
+    ele.id = "id";
+    ele.className = 'class';
+    elements.push(ele);
+
+}
+
+{
+    const ele = document.createElement('div');
+
+    ele.id = "id1";
+    ele.className = 'class1';
+    elements.push(ele);
+    
+}
+console.log(elements);
+
+// break out of nested loops:-label------
+
+const width = 3
+const height = 4
+ outerLoop:
+ for(let x =1;x<=width;x++){
+    for(let y =1;y<=height;y++){
+    if(x==2 && y ==2){
+        break outerLoop;
+    }
+    console.log(`${x} ${y}`);
+    }
+ }
+
+//  

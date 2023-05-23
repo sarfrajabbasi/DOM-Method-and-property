@@ -198,6 +198,7 @@ function abc(){
     num2++
 hexColor = "#"+ parseInt(Math.random()*16777215).toString(16);
 if(num2 > 10){
+    num2=0
     clearInterval(id)
 }
         return hexColor
@@ -208,16 +209,38 @@ const id = setInterval(function(){
 },1000)
 
 btnGo.addEventListener('click',()=>{  
-    box1.style.width = '100%'
+    box1.style.width = '60%'
     box1.style.height ='80px'
-    box1.style.borderRadius =`${num2*5}px`
-    box1.style.backgroundColor = hexColor
+    box1.style.borderTopRightRadius =`${10*5}px`
+    box1.style.backgroundColor = abc()
+    console.log(num2);
+    
+    // element add 
+    const box1Div = document.createElement('div');
+    
+    box1Div.style.borderTopRightRadius =`${10*5}px`
+    box1Div.style.width = "40px";
+    box1Div.style.height = "40px";
+    box1Div.style.border = "5px";
+    box1Div.style.position = "relative";
+    box1Div.style.left = "80%";
+    box1Div.style.top = "1%";
+
+
+    
+    box1Div.style.backgroundColor = abc()
+    while(box1.firstChild){
+        box1.removeChild(box1.firstChild)
+    }
+    box1.appendChild(box1Div)
     
 })
 box1.addEventListener('transitionend',()=>{
+  
+
     box1.style.width ='100px'
     box1.style.height ='100px'
-    box1.style.borderRadius ='0px'
+    box1.style.borderTopRightRadius =`${20}px`
     
 
 })
@@ -232,9 +255,269 @@ const myImg2 =document.getElementById('myImg1')
 // })
 
 myImg1.addEventListener('load',()=>{
-    alert('mountain loaded')
+    // alert('mountain loaded')
 })
 myImg2.addEventListener('load',()=>{
-    alert('resturant loaded')
+    // alert('resturant loaded')
 })
+
+// unLoad event:---------
+
+const btnRChild = document.getElementById('btnRChild');
+
+btnRChild.addEventListener('click',()=>{
+    const iframChild = document.getElementById('iframeC');
+    iframChild.src = "";
+})
+
+
+// DOMContentLoad event:-----
+
+function dom(){
+    const myTitle = document.getElementById('myTitle');
+    console.log(myTitle);
+}
+if(document.readyState === "loading"){
+
+    document.addEventListener('DOMContentLoaded',dom)
+}else{
+    dom()
+}
+
+// DomParser:--
+
+const parser = new DOMParser();
+const parserDocument = parser.parseFromString(`
+<html>
+<head>
+<title>New Document</title>
+</head>
+<body>
+<h1 id ="pageTitle">Sarfraj</h1>
+<p>
+Heyyy How it's Going? My name is sarfraj!
+</p>
+</body>
+</html>
+
+`,"text/html")//return html or xml or SVG/pass second argument mime type
+const pageT = parserDocument.getElementById('pageTitle');
+pageT.textContent = "NO more time waste"
+console.log(pageT);
+console.dir(parserDocument)
+
+// document.body = parserDocument.body;
+const textContent2 = parserDocument.body.textContent 
+console.log(textContent2);
+
+
+// XMLSerializer:----(node and html into valid XML String)
+const myList2 = document.getElementById('myList2');
+
+const xmlSerializer = new XMLSerializer();
+const xmlString = xmlSerializer.serializeToString(myList2);
+console.log(xmlString);
+
+
+// onFocus event:--
+
+const message = document.getElementById('message');
+const myInput = document.getElementById('myInput');
+
+console.log(myInput);
+
+myInput.addEventListener('focus',function(){
+    message.textContent = myInput.value;
+});
+
+// Stopping Propagation with Event.stopPropagation() method :-------------
+
+
+const box5 = document.getElementById('Box5');
+const mybt = document.getElementById('myBt');;
+
+box5.addEventListener('click',function(){
+    box5.style.backgroundColor = 'black';
+    box5.style.borderRadius = '70px';
+    box5.style.hover = '70px';
+})
+mybt.addEventListener('click',function(e){
+    e.stopPropagation()
+   console.log('button press');
+})
+
+// Create your own Promises in JS:----
+
+// Three Examples:---
+
+// 1. divide numbers:--
+
+function divide(a,b){
+    return new Promise((resolve,reject)=>{
+        if(b ===0){
+            reject(new Error("you can't divide the number with 0"));
+            return
+        }
+        resolve(a/b)
+    })
+}
+divide(10,0).then(function(result){
+    console.log(result);
+}).catch((err)=>{
+    console.log('some error with division');
+    console.log(err);
+})
+
+
+
+// 2. wrap setTimeOut function inside promise:---
+
+function wait(ms){
+    return new Promise((res,rej)=>{
+        if(ms <=0){
+            rej(new Error("can't wait for 1 sec the ms value is less then or equal then 0"))
+        }
+        setTimeout(function(){
+            res()
+        },ms)
+    })
+}
+wait(0).then(function(){
+    console.log('Succesfull wait for 1 second!');
+}).catch(function(err){
+    console.error(`There was an Error: ${err.message}`)
+})
+
+
+// 3. Connecting to a MYSQL dataBase using promise :---
+
+// const mySql = require('mysql');
+
+function connectToDataBase(config){
+    return new Promise(function(res,rej){
+        const connection = mySql.createConnection(config)
+
+        connection.connect(function(err){
+            if(err){
+                rej(err);
+                return
+            }
+
+            res(connection)
+        })
+    })
+}
+
+// connectToDataBase({
+//     host:"localhost",
+//     user:"root",
+//     password:"",
+//     database:"chatroom",
+// }).then(function(conn){
+//     console.log('Connection successfull!');
+//     conn.end()
+// }).catch(function(err){
+//     console.log('There was an error connectiong to the database!');
+//     console.error(err.message)
+// })
+
+
+// Sending JSON with AJAX/HttpRequest:----
+
+// input Object
+const toSend = {
+    name:"Domenic",
+    age:35,
+    occupation:'Web-Developer',
+
+}
+
+// convert to JSON string
+
+const jsonString = JSON.stringify(toSend);
+console.log('%c%s','color:green;font-weight:bold;font-size:14px',jsonString);
+
+// post this JSON in php& and requestHeader is JSon
+
+const xhr6 = new XMLHttpRequest();
+
+xhr6.open('POST','../other/receive.php');
+xhr6.setRequestHeader('Content-Type','application/json');
+
+xhr6.send(jsonString);
+
+
+// Fetch API Basic Usage-Get text:---
+
+function loading(link){
+    fetch(link).then((resposne)=>{
+        // console.log(resposne);
+        return resposne.text()
+    }).then(function(text){
+        console.log(text);
+    }).catch(function(err){
+        console.log(err);
+    })
+}
+
+loading('../other/dom.txt')
+
+
+// Render HTML Dynamically Using AJAX:---
+
+
+const xhr7 = new XMLHttpRequest();
+
+const container = document.getElementById('container');
+
+xhr7.onload = function(){
+    if(this.status === 200){
+        // console.log(this.responseText);
+        container.innerHTML = this.responseText
+    }else{
+        console.log('cannot recieve 200 Ok response');
+    }
+}
+
+xhr7.open('GET','../Html/fruits.html');
+xhr7.send()
+
+// Get Json with the fetch API:---
+
+fetch('../other/people.json').then(function(response){
+    return response.text()
+}).then(function(data){
+    // console.log(data);
+}).catch(function(err){
+    console.error('Somthing went wrong with retrieving the people');
+    console.error(err);
+});
+
+// Sending JSON data with the fatch API:----
+
+// make json data:----
+
+const person={
+    name:"sarfraj",
+    age:43,
+    occupation:"Web-Developer"
+}
+
+// fetch:---
+fetch('../other/receive.php',{
+    method:'post',
+    body:JSON.stringify(person),
+    headers:{
+        'Content-type':'application/json'
+    }
+}).then(function(response){
+    return response.text();
+}).then(function(data){
+    console.log(data);
+}).catch(function(err){
+    console.error("can't fetch data");
+    console.error(err);
+})
+
+
 
