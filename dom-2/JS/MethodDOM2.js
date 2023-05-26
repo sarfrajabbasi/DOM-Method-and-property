@@ -10,7 +10,7 @@ request.onload = function(){
         const json = JSON.parse(request.responseText);
         populateRanking(json)
     }catch(e){
-        console.warn('%c%s','font-size :15px;font-weight:bold','Could not load ranking!');
+        // console.warn('%c%s','font-size :15px;font-weight:bold','Could not load ranking!');
     }
 };
 
@@ -163,14 +163,14 @@ const usp = new URLSearchParams({
 
 // get
 const myName = usp.get('name');
-console.log(`value of name : ${myName}`);
+// console.log(`value of name : ${myName}`);
 
 // set
 const setMyVal = usp.set('name',"conner");
 const setMyVal1 = usp.set('Github',"sarfrajabbasi");
 
 // toString
-console.log("%c%s","font-size:13px;font-weight:bold",usp.toString());
+// console.log("%c%s","font-size:13px;font-weight:bold",usp.toString());
 
 // Using the fetch APi with URLSearchParams in JS:-------
 
@@ -275,7 +275,7 @@ btnRChild.addEventListener('click',()=>{
 
 function dom(){
     const myTitle = document.getElementById('myTitle');
-    console.log(myTitle);
+    // console.log(myTitle);
 }
 if(document.readyState === "loading"){
 
@@ -303,12 +303,12 @@ Heyyy How it's Going? My name is sarfraj!
 `,"text/html")//return html or xml or SVG/pass second argument mime type
 const pageT = parserDocument.getElementById('pageTitle');
 pageT.textContent = "NO more time waste"
-console.log(pageT);
-console.dir(parserDocument)
+// console.log(pageT);
+// console.dir(parserDocument)
 
 // document.body = parserDocument.body;
 const textContent2 = parserDocument.body.textContent 
-console.log(textContent2);
+// console.log(textContent2);
 
 
 // XMLSerializer:----(node and html into valid XML String)
@@ -316,7 +316,7 @@ const myList2 = document.getElementById('myList2');
 
 const xmlSerializer = new XMLSerializer();
 const xmlString = xmlSerializer.serializeToString(myList2);
-console.log(xmlString);
+// console.log(xmlString);
 
 
 // onFocus event:--
@@ -324,7 +324,7 @@ console.log(xmlString);
 const message = document.getElementById('message');
 const myInput = document.getElementById('myInput');
 
-console.log(myInput);
+// console.log(myInput);
 
 myInput.addEventListener('focus',function(){
     message.textContent = myInput.value;
@@ -362,10 +362,10 @@ function divide(a,b){
     })
 }
 divide(10,0).then(function(result){
-    console.log(result);
+    // console.log(result);
 }).catch((err)=>{
-    console.log('some error with division');
-    console.log(err);
+    // console.log('some error with division');
+    // console.log(err);
 })
 
 
@@ -385,7 +385,7 @@ function wait(ms){
 wait(0).then(function(){
     console.log('Succesfull wait for 1 second!');
 }).catch(function(err){
-    console.error(`There was an Error: ${err.message}`)
+    // console.error(`There was an Error: ${err.message}`)
 })
 
 
@@ -435,7 +435,7 @@ const toSend = {
 // convert to JSON string
 
 const jsonString = JSON.stringify(toSend);
-console.log('%c%s','color:green;font-weight:bold;font-size:14px',jsonString);
+// console.log('%c%s','color:green;font-weight:bold;font-size:14px',jsonString);
 
 // post this JSON in php& and requestHeader is JSon
 
@@ -454,7 +454,7 @@ function loading(link){
         // console.log(resposne);
         return resposne.text()
     }).then(function(text){
-        console.log(text);
+        // console.log(text);
     }).catch(function(err){
         console.log(err);
     })
@@ -513,11 +513,178 @@ fetch('../other/receive.php',{
 }).then(function(response){
     return response.text();
 }).then(function(data){
-    console.log(data);
+    // console.log(data);
 }).catch(function(err){
     console.error("can't fetch data");
     console.error(err);
 })
 
+
+
+// Sending Form Data(post) with the fetch API in JS:------
+
+
+const myform = document.getElementById('myForm2');
+
+myform.addEventListener('submit',function(e){
+    // preevent browser refersh
+    e.preventDefault();
+
+    // make form data
+    const formData =  new FormData(this);
+
+    // urlString
+    const serachPrams = new URLSearchParams()
+
+    for(const pair of formData){
+        serachPrams.append(pair[0],pair[1]);
+    }
+
+    fetch('../other/login1.php',{
+        method:'post',
+        body:serachPrams,
+    }).then(function(response){
+        return response.text()
+    }).then(function(data){
+        console.log(data);
+    }).catch(function(err){
+        console.error("can't fetch data");
+    })
+})
+
+// Real-time Data Updates with Fetch API:---
+
+function startUpdate(){
+    const textViewCount = document.getElementById('viewCount');
+
+// short polling effect using setinertvel
+
+setInterval(function(){
+    fetch('../other/viewCount.php').then(function(response){
+        return response.text()
+    }).then(function(data){
+        textViewCount.textContent = data.viewCount
+        console.log(data.viewCount);
+    }).catch(function(err){
+        console.error(err);
+    })
+},2000)
+
+}
+
+// startUpdate()
+
+
+
+// Detecting CAPs Lock on Html forms:----
+
+const inp_password =document.getElementById('my_password');
+
+const capsLockWarn = document.getElementById('caps-lock-warn');
+inp_password.addEventListener('keyup',function(e){
+    e.preventDefault()
+    const isCapsLock  = e.getModifierState('CapsLock');
+
+    capsLockWarn.style.display = isCapsLock ? 'block':'none';
+})
+
+// Creating Custom Errors in JavaScript:-----
+
+const person2 = {
+    name:'sarfraj',
+    // age:Number(prompt('enter your age')),
+    age:21,
+};
+
+function drinkingAlcohol(p){
+ const requried_age = 21
+    if(p.age < requried_age){
+        throw new Error('Person 🤓 is under the age of 21 no alcohol{Apne Pita Shiri Ko Bheje Apke Bas ka Nahi  Ha }')
+    }
+    console.log(`${p.name} is Drinking!`);
+}
+
+try{
+
+    drinkingAlcohol(person2)
+}catch(e){
+    console.log('something went wrong')
+    console.error(e);
+}
+
+
+// Make your table rows Clickable(with link):---
+
+const btn05 = document.getElementById('btn05')
+
+// Event Delegation:------
+
+
+const tbody =document.querySelector('#tbody');
+tbody.addEventListener('click',function(e){
+     const target = e.target;
+     const tr = target.parentElement;
+
+     if(tr.matches('tr[data-href]')){
+        window.location.href = tr.dataset.href
+     }
+})
+
+
+btn05.addEventListener('click',
+function addNewTr(){
+    const newTr = {
+       name:document.getElementById('name1'),
+       age:document.getElementById('age1'),
+       occupation:document.getElementById('occup1'),
+       dataLink:document.getElementById('dataLink1'),
+    }
+    
+    const tbody =document.querySelector('#tbody');
+    tbody.insertAdjacentHTML('beforeend',`<tr data-href=${newTr.dataLink.value}>
+    <td>${newTr.name.value}</td>
+    <td>${newTr.age.value}</td>
+    <td>${newTr.occupation.value}</td>
+    </tr> `)
+
+    // remove:---
+
+    newTr.name.value = ""
+    newTr.age.value = ""
+    newTr.occupation.value = ""
+    newTr.dataLink.value = ""
+
+    
+    
+})
+
+
+// Accessing an iFrame document(contentWindow):-----
+
+const iFrame  =document.getElementById('iframe1');
+console.log(iFrame);
+
+function changeStuff(){
+
+    // contentWindow:--
+    const iFrameWindow = iFrame.contentWindow;
+    // contentDocument:---(direct )
+    const iFrameDcoument = iFrame.contentDocument;
+
+    const iFrameHeading = iFrameDcoument.querySelector('h1')
+    iFrameHeading.style.textShadow = '2px 2px lightBlue'
+    iFrameDcoument.body.style.background = 'pink'
+
+}
+
+// Vibrate Mobile devices with Js:---
+
+function Vibrate(ms){
+    navigator.vibrate(ms)
+}
+
+function vibratePattern(){
+    navigator.vibrate(navigator.vibrate([125,75,125,275,200,275,125,75,125,275,200,600,200,600]))
+}
 
 

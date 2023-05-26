@@ -76,6 +76,9 @@ table,th,td{
 th{
     background-color: #29bd29;
 }
+tr{
+    cursor: pointer;
+}
 td:hover{
     background-color: rgb(105, 128, 230);
 }
@@ -252,3 +255,80 @@ label{
 #fruits li:hover{
     background-color: blue;
 }
+
+p{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#viewCount{
+    color: #29bd29;
+}
+
+#caps-lock-warn{
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+    display: none;
+}
+
+#subBtn{
+    background-color: rgb(52, 159, 185);
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}
+#btn05{
+    background-color: rgb(52, 159, 185);
+    font-size: 15px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+#addTr{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    
+
+}
+
+.trInp{
+    display: block;
+}
+
+/* Cs id */
+
+#Cs{
+    width: 100px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 7px;
+    box-shadow: 4px 4px 4px black;
+}
+
+#Cs:hover{
+    background: black;
+    color: white;
+}
+
+.button1{
+    width: 300px;
+    height: 40px;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    background-color: darkblue;
+    box-shadow: 5px 5px 4px black;
+}
+.button1:hover{
+    background-color: rgb(46, 165, 46);
+    text-shadow: 2px 2px black ;
+}
+
+

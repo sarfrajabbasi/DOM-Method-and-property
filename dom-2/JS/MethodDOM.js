@@ -42,14 +42,7 @@ window.addEventListener("mousemove", function (e) {
 
 // How to style Console-Output:--------
 
-console.log(
-  "%cYou And I",
-  `
-color:red;
-font-weight:bold;
-font-size:30px;
-`
-);
+// console.log( "%cYou And I",`color:red;font-weight:bold;font-size:30px;`);
 
 // console.time method:---
 
@@ -58,17 +51,17 @@ const start = new Date();
 
 const end = new Date();
 
-console.log(end - start);
+// console.log(end - start);
 
 // use console
 
-console.time("saarfraj");
+// console.time("saarfraj");
 // alert('Hello')
 let total = 0;
 for (n = 1; n < 1000; n++) {
   total += n;
 }
-console.timeEnd("saarfraj");
+// console.timeEnd("saarfraj");
 
 // onhashchange event:--
 
@@ -155,7 +148,7 @@ copyNode(myList1, 1);
 const item = document.querySelector("#myList > li:first-of-type");
 const appleItem = item.nextElementSibling;
 appleItem.style.height = item.clientHeight + 20 + "px";
-console.log(appleItem);
+// console.log(appleItem);
 
 // getBoundingClientRect()-->return object that have detail:----
 
@@ -164,7 +157,7 @@ box.style.width = "100px";
 box.style.height = "100px";
 box.style.background = "red";
 box.style.border = "6px solid black";
-console.log(box.getBoundingClientRect());
+// console.log(box.getBoundingClientRect());
 
 // local Storage:----
 
@@ -207,19 +200,19 @@ let myObj = {
 
 let myObj_Serialized = JSON.stringify(myObj);
 
-console.log(myObj_Serialized);
+// console.log(myObj_Serialized);
 
 localStorage.setItem("myObj", myObj_Serialized);
-console.log(localStorage);
+// console.log(localStorage);
 
 let myObj_deserialized = JSON.parse(localStorage.getItem("myObj"));
-console.log(myObj_deserialized);
+// console.log(myObj_deserialized);
 
 // Copying text to Clipboad in Html && JS:--
 
 const inputText = document.getElementById("textCopy");
 const btn1 = document.getElementById("btn1");
-console.log(inputText);
+// console.log(inputText);
 
 btn1.onclick = function () {
   // Step 1 : select text
@@ -260,7 +253,7 @@ window.addEventListener('offline',function(){
 })
 
 // sending POST data with AJAX in JS :---
-console.log(document.getElementById('serverResponse'));
+// console.log(document.getElementById('serverResponse'));
 const xhr3 = new XMLHttpRequest();
 
 xhr3.onload =  function(){
@@ -278,8 +271,8 @@ class ProgressBar{
   constructor(element,initalvalue = 0){
     this.elemValue = element.querySelector('#progress-bar-value');
     this.elemFill = element.querySelector('#progress-bar-fill');
-    console.log(this.elemValue); 
-    console.log(this.elemFill); 
+    // console.log(this.elemValue); 
+    // console.log(this.elemFill); 
     this.setValue(initalvalue)
   }
 
@@ -435,7 +428,7 @@ const stopTimer = document.getElementById('stopTimer');
 stopTimer.addEventListener('click',function(){
 
   clearInterval(intervalTime)
-  console.log(intervalTime);
+  // console.log(intervalTime);
 })
 
 

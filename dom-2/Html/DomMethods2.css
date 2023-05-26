@@ -1,0 +1,37 @@
+/* Creating an AJAX File Upload Progress Bar in JavaScript  -->
+ */
+
+
+ .button2{
+    width: 200px;
+    height: 40px;
+    margin: 10px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    background-color: darkblue;
+    box-shadow: 5px 5px 4px black;
+}
+.button2:hover{
+    background-color: rgb(46, 165, 46);
+    text-shadow: 2px 2px black ;
+}
+
+.progress-bar{
+    height: 35px;
+    width: 250px;
+    border: 2px solid darkblue;
+}
+.progress-bar-fill{
+    height: 100%;
+    width: 0%;
+    background: lightgreen;
+    display: flex;
+    align-items: center;
+    transition: width 0.25s;
+}
+
+.progress-bar-text{
+    margin-left: 10px;
+    font-weight: bold;
+}

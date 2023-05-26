@@ -199,10 +199,89 @@
     <div id="container">
 
     </div>
-    <!-- GEt data form json -->
-    
+
+    <!-- Sending Form Data (POST) with the Fetch API -->
+
+    <form class="form2" id="myForm2">
+
+      <label for="inp_username">Username</label>
+      <input type="text"name= 'inp_username' id="inp_username">
+      
+      <label for="inp_password">Password</label>
+      <input type="password"name= 'inp_password' id="inp_password">
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Real-time Data Updates with Fetch API  -->
+
+    <p>
+      view Count: <strong id="viewCount">0</strong>
+    </p>
+
+    <!-- Detecting CAPS LOCK on HTML forms -->
+    <form class="form3">
+      
+      <label for="my_password">password</label>
+      <input type="password" name="my_password " id="my_password">
+      <p id="caps-lock-warn">Caps Lock is on!</p>
+      <button type="submit" id="subBtn">Submit</button>
+
+    </form>
+<br><br><br>
+    <!-- Make your table rows clickable (with a link) -->
+
+    <table class="table">
+      <thead>
+        <tr >
+          <th>Name</th>
+          <th>Age</th>
+          <th>occupation</th>
+        </tr>
+      </thead>
+
+      <tbody id="tbody">
+        <tr data-href="https://findtheinvisiblecow.com/">
+          <td>SARFRAJ</td>
+          <td>21</td>
+          <td>Web-Developer</td>
+        </tr> 
+        <tr data-href="https://www.mapcrunch.com/">
+          <td>MARIE</td>
+          <td>25</td>
+          <td>doctor</td>
+        </tr>
+         <tr data-href="https://hackertyper.com/">
+          <td>JEFF</td>
+          <td>22</td>
+          <td>engineer</td>
+        </tr>
+      </tbody>
+    </table>
+<br>
+  <div id="addTr">
+    <label for="user input"></label>
+  Name :      <input type="text" placeholder="Enter name" class="trInp" id="name1">
+  Age :       <input type="text" placeholder="Enter Age" class="trInp" id="age1">
+  Occupation: <input type="text" placeholder="Enter occupation" class="trInp" id="occup1">
+  dataLink:   <input type="text" placeholder="Enter link" class="trInp" id="dataLink1">
+  </div>
+    <button id="btn05">Add Row</button>
+<br><br>
+    <!-- Accessing an iFrame document(contentWindow) -->
+
+<iframe id="iframe1" src="../Html/ifram.html" frameborder="1"></iframe>
+<br>
+    <button  id="Cs" onclick="changeStuff()">Change-Stuff</button>
+
+<br><br>
+<!-- Vibrate mobile devices with JavaScript -->
+
+<button class="button1" onclick="Vibrate(1000)">Vibrate single</button>
+<br>
+<button class="button1" onclick="VibratePattern">Vibrate pattern</button>
+<br><br><br><br><br><br>
+
   </body>
   <script src="../JS/MethodDOM.js"></script>
   <script src="../JS/MethodDOM2.js"></script>
-  <script src="../JS/MethodDOM3.js"></script>
 </html>
