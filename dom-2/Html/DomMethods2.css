@@ -1,8 +1,7 @@
-/* Creating an AJAX File Upload Progress Bar in JavaScript  -->
- */
+/* Creating an AJAX File Upload Progress Bar in JavaScript  */
 
 
- .button2{
+ .button2,button{
     width: 200px;
     height: 40px;
     margin: 10px;
@@ -12,7 +11,7 @@
     background-color: darkblue;
     box-shadow: 5px 5px 4px black;
 }
-.button2:hover{
+.button2:hover,button:hover{
     background-color: rgb(46, 165, 46);
     text-shadow: 2px 2px black ;
 }
@@ -35,3 +34,95 @@
     margin-left: 10px;
     font-weight: bold;
 }
+
+/* inputin block */
+input{
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* computedStyle */
+
+#csText{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: purple;
+    color: white;
+    font-size: 10px;
+}
+#csText:hover{
+    width: 300px;
+    height: 100px;
+    font-family: sans-serif;
+    font-size: 17px;
+    border-radius: 100px;
+    transition: width 1s;
+    
+    
+}
+#box{
+    width: 400px;
+    height: 150px;
+    background-color: aqua;
+
+}
+
+
+#box ::after{
+    content: 'sarfraj';
+    background-color: brown;
+    font-size: 25px;
+    font-weight: bold;
+}
+#box :hover{
+    background-color: goldenrod;
+    color: black;
+}
+
+.buttonFav1{
+    background-color: #ff0000;
+}
+.buttonFav2{
+    background-color: rgb(44, 212, 44);
+}
+
+.buttonFav1:hover{
+    background-color: darkred;
+    border: 2px solid lightblue;
+}
+.buttonFav2:hover{
+    background-color:darkgreen;
+    border: 2px solid lightgreen;
+}
+
+/* Detect When a CSS animation has finished in js --> 'animationed' event */
+
+#boxAnimate{
+    margin: 40px;
+    position: absolute;
+    top: 150p;
+    left: 40px;
+    width: 75px;
+    height: 75px;
+    background-color: red;
+    animation: myAnimation 6.5s forwards 0.5s;
+}
+
+@keyframes myAnimation {
+
+    form{
+        left:40px;
+        border-radius: 0;
+    }
+
+    to{
+        left: calc(100vw - 115px);
+        border-radius: 50%;
+    }
+    
+}
+

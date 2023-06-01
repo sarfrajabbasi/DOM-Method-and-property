@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="DomMethods2.css">
     <title>DomMethods2</title>
@@ -21,6 +23,50 @@
       <span class="progress-bar-text">0%</span>
     </div>
   </div>
+<br><br><br><br><br>
+  <!-- Upload file with fetch -->
+
+  <form  class="form5" id="myForm5">
+    <input type="file" id="inFile1">
+    <br>
+    <button  id="btn1" type="submit">Upload File</button>
+  </form>
+
+
+<!-- Upload multiple files with Fetch API -->
+
+<input type="file" id="inpFile2" multiple>
+<button id="uploadBtn">Upload Files</button>
+
+<!-- Upload multiple files with AJAX-->
+
+<input type="file" id="inpFile3" multiple>
+<button id="btnUpload2">Upload Files</button>
+
+<!-- Using the File API on Upload Forms -->
+
+<from class="form"  action="./upload " method = 'post' enctype="multipart/form-data">
+
+  <input type="file" name="inpFile" id="inpFile4" multiple>
+  <button type="submit">Upload Files</button>
+
+</from>
+
+<br><br><br>
+
+<!-- Getting CSS Styles with JavaScript - getComputedStyle() function -->
+
+<div id="box"><p id="csText" >Hello</p></div>
+<br><br><br>
+<!-- Dynamically Change Your Favicon With JavaScript -->
+
+<button class="buttonFav1" type="button" onclick="toRed()">Red</button>
+<button class="buttonFav2" type="button" onclick="toGreen()">Green</button>
+
+<!--  Detect When a CSS animation has finished in js 'animationed' event-->
+
+<div id="boxAnimate"></div>
+
 </body>
 <script src="../JS/MethodDOM3.js"></script>
 </html>
