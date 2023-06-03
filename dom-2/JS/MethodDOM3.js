@@ -3,7 +3,7 @@
 const uploadForm = document.getElementById('uploadForm');
 const inpFile = document.getElementById('inpFile');
 const ProgressBarFill = document.querySelector('#progressBar > .progress-bar-fill');
-const ProgressBarText = ProgressBarFill.querySelector('.progress-bar-text');
+const ProgressBarText = ProgressBarFill.querySelector('.progress-bar-text');clear
 
 uploadForm.addEventListener('submit',uploadFile)
 
@@ -177,3 +177,7 @@ const boxAnimate = document.getElementById('boxAnimate');
 boxAnimate.addEventListener('animationend',function(){
     console.log('box  has move  all the way!');
 })
+
+
+// Chaining Fetch Requests in JavaScript - Promise Chain Example:----
+

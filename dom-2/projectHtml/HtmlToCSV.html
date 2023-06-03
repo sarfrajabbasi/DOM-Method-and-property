@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Project/htmlToCSV.css">
+    <title>Html to CSV</title>
+</head>
+<body>
+    <table id="dataTable" class = 'table'>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+                <th>Team</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>steve lodesh</td>
+                <td>2,456</td>
+                <td>Blue "team" not</td>
+            </tr>
+             <tr>
+                <td>2</td>
+                <td>john Cena</td>
+                <td>8,342</td>
+                <td>Green</td>
+            </tr> 
+            <tr>
+                <td>3</td>
+                <td>lora leyland</td>
+                <td>4,564</td>
+                <td>Pink</td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="btnExportToCsv" type="button" class="button">Export to CSV</button>
+</body>
+<script src="../JS/HtmlToCSV.js"></script>
+<script>
+
+
+ const dataTable = document.getElementById('dataTable');
+
+ const btnExportCSV = document.getElementById("btnExportToCsv");
+
+  btnExportCSV.addEventListener('click',function(){
+
+    const exporter = new TableCSVExporter(dataTable,false);
+
+    const csvOutput = exporter.convertToCSV();
+
+    const csvBlob = new Blob([csvOutput],{type:'text/csv'});
+
+    const blobUrl = URL.createObjectURL(csvBlob);
+
+    const anchorElement = document.createElement('a');
+     anchorElement.href = blobUrl;
+     anchorElement.download = "table-export.csv"
+     anchorElement.click()
+
+     setTimeout(()=>
+     URL.revokeObjectURL(blobUrl),500
+     )
+  })
+</script>
+</html>
