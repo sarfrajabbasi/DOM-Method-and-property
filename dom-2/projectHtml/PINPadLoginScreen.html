@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Project/PINPadLoginScreen.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>PIN Pad Login Screen</title>
+</head>
+<body>
+    <h1> Pin Login w/ HTML , CSS & JS</h1>
+    <div class="pin-login" id="mainPinLogin">
+        <input type="password" readonly class="pin-login__text">
+        <div class="pin-login__numpad">
+            <!-- <div class="pin-login__key">0</div>
+            <div class="pin-login__key material-icons" >done</div>
+            <br> -->
+        </div>
+    </div>
+</body>
+<script src="../JS/project/PINPadLoginScreen.js"></script>
+<script>
+
+    new PinLogin({
+        el:document.getElementById('mainPinLogin'),
+        logEndPoint:'../other/login3.php',
+        redriectTo:'dashboard.html',
+        maxNumber :4,
+    })
+</script>
+</html>

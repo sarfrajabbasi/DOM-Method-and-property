@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Project/createCustomConfirmWindow.css">
+    <title>create a custom confirm window</title>
+</head>
+<body>
+<button id="btnChangeBackground">change Background</button>
+
+</body>
+<script src="../JS/project/createCustomConfirmWindow.js"></script>
+<script>
+    const btnChangeBackground = document.getElementById('btnChangeBackground');
+    btnChangeBackground.addEventListener('click',()=>{
+        Confirm.open({
+        title:'Background Change',
+        message:'Are you sure you wish the background color?',
+        onOk:()=> document.body.style.backgroundColor = 'blue',
+        })
+    })
+
+    // Confirm.open({
+    //     title:'A custom confirm window!',
+    //     message:'All your data will be removed, Are you sure you wish to continue',
+    //     okText:'Yeah, sure',
+    //     cancelText:'Nah, not just yet',
+    //     onOk:()=> console.log('You pressed Ok'),
+    //     onCancel:()=> console.log('You cancelled! wow!'),
+    // })
+</script>
+</html>

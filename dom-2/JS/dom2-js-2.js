@@ -4,7 +4,7 @@ const arr = ["xz","sarfraj","asif","aman","junaid","katy","ola","peguin"];
 
 const sorted = arr.sort();
 
-console.log(sorted);
+// console.log(sorted);
 
 const people1 = [
     {
@@ -33,23 +33,23 @@ const sortedAge = people1.sort((a,b)=>{
     return  b.age - a.age
 })
 
-console.log(sortedAge);
+// console.log(sortedAge);
 
 // padStart and padEnd:-------
 
 const str = "sarfraj";
- console.log(str.padStart(10,"5"));
- console.log(str.padEnd(10,"2"));
+//  console.log(str.padStart(10,"5"));
+//  console.log(str.padEnd(10,"2"));
  const arr5 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
  arr5.forEach((n)=>{
-    console.log(n.toString().padStart(2,"0"));
+    // console.log(n.toString().padStart(2,"0"));
  });
 
 
 //  Default-Parameter:---
 
 function sat(a,b=10,c){
-    console.log(a + b + c);
+    // console.log(a + b + c);
 }
 
 sat(1,undefined,10);
@@ -72,8 +72,8 @@ const NameList = {
 }
 
 NameList.init(function(newName,allNames){
-    console.log(newName);
-    console.log("this current list is " + allNames);
+    // console.log(newName);
+    // console.log("this current list is " + allNames);
 })
 NameList.addName("sarfraj")
 NameList.addName("asif")
@@ -94,7 +94,7 @@ let hex2 = "#";
      }
     deg = parseInt(Math.random()*180);
     document.body.style.backgroundImage = `linear-gradient(${deg}deg,${hex1},${hex2})`
-    console.log(hex1,hex2);
+    // console.log(hex1,hex2);
 })
 
 // The call method:----
@@ -123,7 +123,7 @@ printName.call(
  }
 
  const result2 = sum.apply(null,[5,20,67,8,9,34,67,8,9])
- console.log(result2);
+//  console.log(result2);
 
 
 // string repeat method:---
@@ -131,19 +131,19 @@ printName.call(
 let myStr = 'rocky';
 let repeated = myStr.repeat(4);
 
-console.log(repeated);
+// console.log(repeated);
 
 // == and === 
 
-console.log("2"==2);
-console.log("2"=== 2);
-console.log(""== 0);
+// console.log("2"==2);
+// console.log("2"=== 2);
+// console.log(""== 0);
 
 
 // remider operator(modulus);
 
 const reminder = 21 % 7
-console.log(reminder);
+// console.log(reminder);
 
 function getColor(name){
     const color = ["green","red","blue"];
@@ -151,7 +151,7 @@ function getColor(name){
     return color[index]
 }
 
-console.log(getColor('sa'));
+// console.log(getColor('sa'));
 
 // The Arguments Object in Functions:--------
 
@@ -162,7 +162,7 @@ function sum(){
         total += arguments[i]
     }
 
-    console.log(total);
+    // console.log(total);
 }
 
 sum(1.56,89,56)
@@ -173,7 +173,7 @@ sum(10,10,10)
 
 var randomN = parseInt(Math.random()*10) + 1;
 
-console.log(randomN);
+// console.log(randomN);
 
 
 // Convert a UTF-16 Code Point into a String or optionally, a sequence of Strings.
@@ -186,7 +186,7 @@ function charCode(start,end){
         ${String.fromCharCode(i)} => ${i}
         `
     }
-    console.log(a);
+    // console.log(a);
 
 }
 
@@ -194,7 +194,7 @@ charCode(65,90)
 
 function myName(){
 let myNameIs = String.fromCharCode(...arguments)
-console.log(myNameIs);
+// console.log(myNameIs);
 }
 
 myName(83,65,82,70,82,65,74);
@@ -221,7 +221,7 @@ const finalResult = Object.assign(obj1,obj2,{class:10})
 
 const copy = Object.assign({},finalResult);
 
-console.log(finalResult);
+// console.log(finalResult);
 
 // used this method insde application:--
 
@@ -232,12 +232,12 @@ function printName(options){
 
     }
     options = Object.assign(defaultt,options)
-    console.log(`${options.firstName} ${options.secondName}`);
+    // console.log(`${options.firstName} ${options.secondName}`);
 }
-console.log(printName({
-    firstName:'sarfraj',
-    secondName:'abbasi'
-}));
+// console.log(printName({
+//     firstName:'sarfraj',
+//     secondName:'abbasi'
+// }));
 
 // Debug your JS code visually with console.table:-----
 
@@ -253,27 +253,27 @@ const obj4 = {
     }
 
 }
-console.table(arr4);
-console.table(obj4);
+// console.table(arr4);
+// console.table(obj4);
 
 // Array map method:---------
 
 const existingArray = ['docde',"dom",'js',"defined"];
 
 const array3 = existingArray.map(function(e,index,array){
-    console.log(index,array);
+    // console.log(index,array);
     return index + " how are you "+ e +" " + this.name 
 },{
     name:"LOL"
 })
-console.log(array3);
+// console.log(array3);
 
 // Array Flat() Method:-----------
 
 const array1 = [1,2,3,4,[5,[2,3],[34,[45,[45,[5,4,[5,[5,6,[7]]]]]]]],[23,45]];
 
 const numbersFlat = array1.flat(Infinity)
-console.log(numbersFlat);
+// console.log(numbersFlat);
 
 // Array flatMap() methods:---
 
@@ -289,12 +289,12 @@ const pair = [
     ];
  });
 
- console.log(result5);
+//  console.log(result5);
 
 //  constant variable:-------
 var names2  = [ 1,2,3,4 ]
 for(const name of names2){
-    console.log(name);
+    // console.log(name);
 }
 
 
@@ -319,7 +319,7 @@ const elements = [];
     elements.push(ele);
     
 }
-console.log(elements);
+// console.log(elements);
 
 // break out of nested loops:-label------
 
@@ -331,8 +331,172 @@ const height = 4
     if(x==2 && y ==2){
         break outerLoop;
     }
-    console.log(`${x} ${y}`);
+    // console.log(`${x} ${y}`);
     }
  }
 
-//  
+// ES6 Rest parameter:----
+
+// destrcutruing with rest
+function add(...[a,b,c]){
+    // let total = 0;
+
+    // for(let n of nums){
+    //     total += n
+    // }
+    // return total
+
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+}
+
+// console.log(add(4,60,80));
+
+// js Modules with Import/Export syntax:-----
+
+// use import keyword and curly braces inside specify the functions name form that location that you take that functions
+
+// import{double as utilsDouble,name} from '../JS//utiltiy/utility.js';
+// import * as Utils from '../JS//utiltiy/utility.js';
+
+// import {default as bottle} from '../JS//utiltiy/utility.js';
+// import bottle from '../JS//utiltiy/utility.js';
+// import {water} from '../JS//utiltiy/utility.js'
+
+
+// console.log(Utils.double(10))
+// console.log(Utils.name);
+// bottle()
+// water()
+
+
+// arrow functions:----
+
+const arrowFunc = (a,b)=>{
+    // console.log(10);
+    // console.log(a+b);
+}
+arrowFunc(10,19);
+const arrowBtn = document.getElementById('arrowBtn');
+
+// arrowBtn.addEventListener('click',()=>{
+//     // console.log(this);
+// })
+
+let a = "no man no"
+const obj01 = {
+    pen:function(){
+        // console.log(...arguments);
+        // console.log("saino-softek");
+    },
+    // use rest perameter
+    pencil:(...arg)=>{
+        // console.log(arg);
+        // console.log(this);
+        // console.log(a);
+    }
+}
+
+obj01.pen([0,23,"dard"]);
+obj01.pencil([1,2,3,,4,4]);
+
+
+
+// RegularExpresssions:------
+
+let regx = /\w{3}/;
+
+// console.log(regx.exec('hi dom')[0]);
+// console.log(regx.test('hi dom'));
+// console.log("hi dom".search(regx));
+
+/*
+Possible matches:--
+  -- hello,Dom. You have 5 tasks remining.
+  -- Greetings ,Jhonny. You have 1 task remaining
+*/
+// w--> char 
+// d --> digit
+// \ period to match
+// ? mean char.or token before it's optional
+
+// let regx2 = /^(\w+), (\w+)\. You have (\d+) tasks? remaining\.$/
+let regx2 = /(\w+), (\w+)\. You have (\d+) tasks? remaining\./
+
+// console.log(regx2.test('hello, Dom. You have 5 tasks remaining.'));
+// console.log(regx2.test('Greetings, Jhonny. You have 1 task remaining.'));
+// 
+// console.log(regx2.exec('hello, Dom. You have 5 tasks remaining.'));
+// console.log(regx2.exec('microhone Greetings, Jhonny. You have 1 task remaining.'));
+// 
+// console.log('Greetings, Jhonny. You have 1 task remaining.'.match(regx2));
+
+
+// valueOf method:---
+
+const strPrim = 'conner';
+const strObj = new String(strPrim);
+const strobjPrim = strObj.valueOf();
+
+console.log(strPrim);
+console.log(strObj);
+console.log(strobjPrim);
+
+class Product{
+    constructor(name,cost){
+        this.name = name;
+    this.cost = cost
+    }
+
+    // valueOf(){
+    //     return this.cost
+    // }
+
+}
+
+const p1 = new Product('samsung Galaxy S8',850)
+const p2 = new Product('Google Pixel 3 XL',790)
+// console.log(p1.valueOf());
+// console.log(p2.valueOf());
+
+// js call value of method itself
+const total = p1 + p2
+// console.log(total);
+
+
+// typeof Operator:----
+
+function whoAreYou(){
+
+    let declared;
+
+console.log(typeof 'sarfraj');
+console.log(typeof 13);
+console.log(typeof {name:"sar",ol:'ul'});
+console.log(typeof [1,2,3,4]);
+console.log(typeof undefined);
+console.log(typeof null);
+console.log(typeof function(){});
+console.log(typeof declared);
+console.log(typeof howsItGoingGuys);
+
+// also use for libray file that has been loaded or not.
+// example :-- <script src="http:// momentjs.com/downloads/moment.min.js"></script>
+if(typeof moment === "undefined"){
+    console.log('Moment .js not found');
+}
+
+// let,const
+
+console.log(typeof dcode2);
+let dcode;
+const dcode5=0;
+
+
+}
+// whoAreYou();
+
+
+// Session Storage:----
+

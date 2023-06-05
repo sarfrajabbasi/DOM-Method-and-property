@@ -3,7 +3,7 @@
 const uploadForm = document.getElementById('uploadForm');
 const inpFile = document.getElementById('inpFile');
 const ProgressBarFill = document.querySelector('#progressBar > .progress-bar-fill');
-const ProgressBarText = ProgressBarFill.querySelector('.progress-bar-text');clear
+const ProgressBarText = ProgressBarFill.querySelector('.progress-bar-text');
 
 uploadForm.addEventListener('submit',uploadFile)
 
@@ -104,7 +104,7 @@ inpFile4.addEventListener('change',function(){
             alert(`${file.name} is too big! Max is 300kb`)
             return
         }
-        console.log(file.name);
+        // console.log(file.name);
     }
 
 })
@@ -130,13 +130,13 @@ function promiseAjax(url,parseJson){
 
 promiseAjax('../other/people.json').then(function(xhr){
     if(xhr.status !==200){
-       console.error('404 Error'); 
+    //    console.error('404 Error'); 
     }
-    console.log(xhr.responseText); 
+    // console.log(xhr.responseText); 
 
-    console.log(xhr);
+    // console.log(xhr);
 }).catch(function(err){
-    console.error(err);
+    // console.error(err);
 })
 
 
@@ -148,7 +148,7 @@ const box = document.getElementById('box')
 const csBox = window.getComputedStyle(box);
 const csPara = window.getComputedStyle(para);
 const csBoxAfter = window.getComputedStyle(box,'::after');
-console.log(csBoxAfter.backgroundColor);
+// console.log(csBoxAfter.backgroundColor);
 para.textContent =  `
 
 My parent computed width is ${csBox.width},
@@ -175,9 +175,270 @@ function toGreen(){
 const boxAnimate = document.getElementById('boxAnimate');
 
 boxAnimate.addEventListener('animationend',function(){
-    console.log('box  has move  all the way!');
+    // console.log('box  has move  all the way!');
 })
 
 
 // Chaining Fetch Requests in JavaScript - Promise Chain Example:----
+
+// single fetch request
+fetch('../other/config.json').then(response =>{
+    return response.json();
+}).then(data=>{
+    // console.log(data);
+
+}).catch(err =>{
+    // console.log(err);
+});
+ 
+// chaining fetch requests:---
+
+fetch('../other/config.json').then(response =>{
+    return response.json();
+}).then(data=>{
+    return fetch('../other/themes/' + data.theme + '.css')
+
+
+}).then(response =>{
+    return response.text();
+}).then(cssContent =>{
+    // console.log(cssContent);
+}).catch(err =>{
+    // console.log(err);
+});
+ 
+// make it bit more modular ,more seprate and easier to work with and maintain.
+
+function getConfig(){
+    return new Promise((resolve,reject)=>{
+        fetch('../other/config.json').then(response =>{
+            return response.json();
+        }).then(data =>{
+            resolve(data)
+        }).catch(err =>{
+
+            reject(err)
+        })
+    })
+};
+
+function getTheme(themeName){
+    return new Promise((resolve,reject)=>{
+        fetch('../other/themes/' + themeName + '.css').then(response =>{
+            return response.text();
+        }).then(cssContent =>{
+            resolve(cssContent)
+        }).catch(err =>{
+            reject(err)
+        })
+    })
+}
+
+getConfig().then(data =>{
+    return getTheme(data.theme)
+}).then(cssContent =>{
+    // console.log('Theme Loaded!');
+    // console.log(cssContent);
+}).catch(err =>{
+    // console.error(err);
+});
+
+
+// toJSON() method:-------
+
+const person2 = {
+    name:"jhon",
+    age:23,
+    // with the help of toJSON  you able to change what the obj. here produces for this json stringfiy,actually you are define the toJSON method on the actual object,it return a new value from  this function and that value is strfingy instead of all stringfy object.JSON.stringify look for toJson method if it exist then it's going to use that instead of default values
+// it check toJSON exist of not
+    toJSON(){
+        return `This is ${this.name} and they are ${this.age} years old!`
+    }
+}
+
+const dataObj = {
+    data:person2,
+}
+
+// return json string
+// console.log(JSON.stringify(dataObj));
+
+// Also work on classes:---
+
+class Person{
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+
+
+    toJSON(){
+        return `This is ${this.name} and they are ${this.age} years old!`
+    }
+
+}
+
+const dataObj2 = {
+    data:new Person('sarfraj',45),
+}
+
+// return json string
+// console.log(JSON.stringify(dataObj2));
+
+
+// Use the toJSON on htmlElement:---
+
+const h2 = document.querySelector('h2');
+
+HTMLElement.prototype.toJSON = function(){
+    console.log('using "outerHtml" property and add new method which is "toJson() "');
+    return this.outerHTML.toLocaleLowerCase()
+}
+
+const dataObj3 = {
+    data:h2,
+}
+
+// not working with htmlElements
+// console.log(JSON.stringify(dataObj3));
+
+
+// Base64 Encoding in JavaScript:----
+
+// Orignal
+const str = 'sarfraj';
+
+// convert to base64(btoa it's functions that convert the string into base64)
+const base64 = btoa(str)
+
+// decode it to it's original form (atob this functions decode the base64)
+const decodeBase64 = atob(base64);
+
+// logs:---
+// console.log('%c%s','color:red',`Original string :-- ${str}`);
+// console.log('%c%s','color:blue',`base64 Encoding :-- ${base64}`);
+// console.log('%c%s','color:green',`decoding base64 :-- ${decodeBase64}`);
+ 
+// Use the base64:-----(upload canvas image)
+
+
+// /access element:---
+
+const btnUpload01 = document.getElementById('btnUpload01');
+
+const myCanvas = document.getElementById('myCanvas');
+
+// other way you can draw on the actual canvas
+const ctx = myCanvas.getContext('2d')
+
+ctx.filStyle = '#cccc';
+// reactangle
+ctx.rect(0,0,myCanvas.width,myCanvas.width)
+
+ctx.fill();
+
+ctx.fillStyle = 'red'
+ctx.font = '35px serif'
+
+ctx.fillText('sarfraj abbasi',30,60)
+
+btnUpload01.addEventListener('click',uploadCanvasImage)
+
+function uploadCanvasImage(){
+    // base64 representaion of canvas(string)
+    const base64 = myCanvas.toDataURL().split(',')[1];
+    // console.log(base64);
+
+    const body = {
+        'generated_at':new Date().toISOString(),
+        "png":base64,
+    };
+
+    fetch('../other/upload1',{
+        method:'post',
+        body : JSON.stringify(body),
+        headers:{
+            'Content-type':'application/json'
+        }
+
+    });
+
+};
+
+
+
+// Send Data Between tabs and windows-Broadcast channel API in JS:----
+
+// --> Allows communication b/w browser contexts of the same origin (tabs,windows,iframes)
+// ---> Origin: scheme(protocal),host and part
+
+const bc = new BroadcastChannel('sarfraj');
+
+// Handle incoming Messages:------
+bc.addEventListener('message',(e)=>{
+    // console.log(e.data);
+    
+})
+
+// Send Messages:-----
+
+// bc.postMessage("how it's going!")
+// bc.postMessage([12,3,445,6,])
+// bc.postMessage({name:"hulu",age:90-Infinity})
+// bc.postMessage(new Blob(['sample Text']))
+
+
+// Promise.all()----
+
+const fetchUsers = fetch('../other/user.json')
+const fetchColor = fetch('../other/color.json')
+
+// it retrun array of promise
+Promise.all([fetchUsers,fetchColor]).then(values =>{
+    Promise.all(values.map(r => r.json())).then(([user,color]) =>{
+// console.log(user,color);
+    }).catch(e =>{
+        // console.log('caught!')
+        // console.error(e)
+    })
+});
+
+
+// Previewing Image before file upload On website:----
+
+const inpFile01 = document.getElementById('inpFile01');
+const previewContainer = document.getElementById('imagePreview');
+
+const PreviewImage = previewContainer.querySelector('.image-preview__image');
+
+const PreviewDefaultText = previewContainer.querySelector('.image-preview__default-text')
+
+
+inpFile01.addEventListener('change',function(){
+    const file = this.files[0];
+    if(file){
+        const reader = new FileReader();
+        PreviewDefaultText.style.display = "none"
+        PreviewImage.style.display = "block";
+
+        reader.addEventListener('load',function(){
+            // this.result is file reader property
+            console.log(this);
+            PreviewImage.setAttribute('src',this.result);
+        })
+        // read as data url
+        reader.readAsDataURL(file)
+    }else{
+        PreviewDefaultText.style.display = null
+        PreviewImage.style.display = null
+   
+    }
+})
+
+
+
+// session Storage:---
+
+// syntax:-- session Storage
+
 
