@@ -439,6 +439,309 @@ inpFile01.addEventListener('change',function(){
 
 // session Storage:---
 
-// syntax:-- session Storage
+// syntax:-- sessionStorage(   )
+
+function sessionStore(obj){  
+    // setItem:
+    sessionStorage.setItem('work','Coding');
+    
+    sessionStorage.setItem('avatar',JSON.stringify(obj));
+
+    // reassign item value
+    sessionStorage.setItem('work',"Developer");
+
+    
+
+    // loop:--
+    for(let i=0;i<sessionStorage.length;i++){
+        const key  = sessionStorage.key(i);
+        console.log(`${key} => ${sessionStorage.getItem(key)}`);
+    }
+    
+    // log:----
+    console.log(JSON.parse(sessionStorage.getItem('avatar')));
+    console.log(sessionStorage.getItem('work'))
+
+    // remove item :---
+    sessionStorage.removeItem('avatar');
+
+    // clear all item:---
+    sessionStorage.clear();
+}
+ 
+// sessionStore({
+//     avatar :"jhon f cannedy",
+//     work :"USA-president",
+//     goodThing:"dead",
+// });
+
+
+// Date Object:------
+
+function dateValue(){
+    let d;
+
+// 1).
+// currrent date object
+d= new Date();
+console.log(d.toString());
+
+// it create new date instance to repesent the point in time.
+
+// 2).date time number in ms
+
+d= new Date(1164411006456);
+console.log(d.toString());
+
+
+// 3).date time string passs
+// UTC and GMTd
+d= new Date("2023-08-02T11:30:00+10:00");
+console.log(d.toString());
+
+
+
+// 4).passing individual parts
+// year-month-day-hour-minutes-seconds-ms
+//gonna take first value of each part(start value of each part);
+
+d= new Date(2024,7,2,11,30,27,0);
+// d= new Date(2024,7);
+console.log(d.getFullYear());
+console.log(d.getMonth());
+console.log(d.getDay());
+console.log(d.getHours());
+console.log(d.getMinutes());
+console.log(d.getSeconds());
+console.log(d.getMilliseconds());
+console.log(d.getUTCHours());
+
+d.setMinutes(10);
+d.setDate(9);
+console.log(d.toLocaleString('eu-AU',{
+    timeZone:'America/Los_Angeles'
+}));
+console.log(d.toLocaleString('en-US'));
+
+// json strinfy
+
+console.log(JSON.stringify({
+    myDate:d
+}));
+
+}
+
+// dateValue()
+
+// MutationObserver :-----------
+
+function mutationObserver(){
+    
+    const myList = document.querySelector(".summary");
+
+    /*
+    (mutation observer work three main steps)
+    
+    1. Making  a new MutationObserver Object
+    2. Tell it what to observe
+    3. what to do with the observerd changes/mutations.
+    */
+//    1.
+    const observer = new MutationObserver(function(mutations1){
+        console.log(mutations1);
+        mutations1.forEach(record =>{
+            if(record.type === "attributes"){
+                // give us id
+                const changeAttributeName =record.attributeName;
+
+                const newValue =  record.target.getAttribute(changeAttributeName);
+
+                console.log(`attribute chnaged New value for ${changeAttributeName} : ${newValue}`)
+
+            }
+        })
+    });
+//    2.
+    observer.observe(myList,{
+        attributes:true,
+        attributeFilter:['class'],
+        attributeOldValue:true
+
+    });
+    setTimeout(()=>{
+        myList.setAttribute('id', "someRandomId") 
+        myList.setAttribute('class', "another-Class") 
+    })
+};
+
+// oneeeeeeeee
+function mutationObserver1(){
+    
+    const myList = document.querySelector(".summary");
+
+    /*
+    (mutation observer work three main steps)
+    
+    1. Making  a new MutationObserver Object
+    2. Tell it what to observe
+    3. what to do with the observerd changes/mutations.
+    */
+//    1.
+    const observer = new MutationObserver(
+        
+        function(mutations1){
+        mutations1.forEach(record =>{
+            console.log(record);
+
+            if(record.addedNodes.length > 0){
+                console.log(`Number of nodes added : ${record.addedNodes.length}`);
+            }
+            
+            if(record.removedNodes.length > 0){
+                console.log(`Number of nodes removed : ${record.removedNodes.length}`);
+            }
+          })
+         }
+    
+    );
+//    2.
+    observer.observe(myList,{
+        childList:true,
+
+    });
+    setTimeout(()=>{
+     myList.removeChild(myList.firstElementChild);
+     const newLi = document.createElement('li');
+     newLi.textContent = "Hello hola balauu";
+     myList.appendChild(newLi);
+    },1000);
+
+};
+
+// Twoooooooo
+function mutationObserver2(){
+    
+    const myList = document.querySelector(".summary");
+
+    /*
+    (mutation observer work three main steps)
+    
+    1. Making  a new MutationObserver Object
+    2. Tell it what to observe
+    3. what to do with the observerd changes/mutations.
+    */
+//    1.
+    const observer = new MutationObserver(
+        
+        function(mutations1){
+        mutations1.forEach(record =>{
+            console.log(record);
+
+            if(record.addedNodes.length === 1 && record.addedNodes[0].nodeType === Node.TEXT_NODE && record.removedNodes.length === 1 && record.removedNodes[0].nodeType === Node.TEXT_NODE){
+                console.log(`Text changed form ${record.removedNodes[0].nodeValue} to ${record.addedNodes[0].nodeValue }`);
+            }
+          })
+         }
+    
+    );
+//    2.
+    observer.observe(myList.firstElementChild,{
+        childList:true,
+
+    });
+    setTimeout(()=>{
+    myList.firstElementChild.textContent = "something else";
+    myList.firstElementChild.innerHTML = " and  something else";
+    })
+     // it don't work coz it have two node
+    // myList.firstElementChild.innerHTML = " <br>and  something else";
+    // },1000);
+
+};
+
+
+// Threeeeeeeee
+function mutationObserver3(){
+    
+    const myList = document.querySelector(".summary");
+
+    /*
+    (mutation observer work three main steps)
+    
+    1. Making  a new MutationObserver Object
+    2. Tell it what to observe
+    3. what to do with the observerd changes/mutations.
+    */
+//    1.
+    const observer = new MutationObserver(
+        
+        function(mutations1){
+        mutations1.forEach(record =>{
+            console.log(record);
+
+            console.log(`text has changed! New value : ${record.target.nodeValue}. Old value:${record.oldValue} `);
+          })
+         }
+    
+    );
+//    2.
+    observer.observe(myList.firstElementChild.firstChild,{
+        characterData:true,
+        characterDataOldValue:true,
+
+    });
+
+    // time
+    setTimeout(()=>{
+        myList.firstElementChild.firstChild.nodeValue = "how's it going?"
+    });
+
+}
+
+
+// fourrrrrrrrrrr(subtree)
+function mutationObserver4(){
+    
+    const myList = document.querySelector(".summary");
+
+    /*
+    (mutation observer work three main steps)
+    
+    1. Making  a new MutationObserver Object
+    2. Tell it what to observe
+    3. what to do with the observerd changes/mutations.
+    */
+//    1.
+    const observer = new MutationObserver(
+        
+        function(mutations1){
+        mutations1.forEach(record =>{
+            console.log(record);   
+            
+            
+          })
+         }
+    
+    );
+//    2.
+    observer.observe(myList,{
+     subtree:true,
+     attributes:true
+    });
+// stop observer:---
+// observer.disconnect();
+    // time
+    setTimeout(()=>{
+        myList.setAttribute('id','someRandomId');
+        myList.firstElementChild.setAttribute('id','anotherId');
+    });
+
+}
+// mutationObserver()
+// mutationObserver1()
+// mutationObserver2()
+// mutationObserver3()
+// mutationObserver4()
+
 
 

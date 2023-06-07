@@ -497,6 +497,208 @@ const dcode5=0;
 }
 // whoAreYou();
 
+// How To Use Iterators in JavaScript - Iterate Over Arrays and Collections or data structure:------
 
-// Session Storage:----
+function iterattors(){
+
+    // itertable
+const numbersArr = [43,23,45,6,7,8];
+const numbersiterator = numbersArr[Symbol.iterator]();
+ for(let i=0;i<=numbersArr.length;i++){
+    console.log(numbersiterator.next());
+ }
+
+// for of loop request the iterator form this numArray,it's make it iterable(if privides the iterator then it is iteratble)
+ for(let num of numbersArr){
+    console.log(num);
+ }
+
+
+
+}
+
+// iterattors()
+
+// create own iterator:---
+
+function squared(max){
+
+    return{
+        [Symbol.iterator](){
+            let n = 0;
+    return{
+        next(){
+
+            n++;
+
+            if(n <=max){
+                return{
+                    value:n*n,
+                    done:false
+                }
+            }
+
+            return {
+                value:undefined,
+                done:true
+            }
+
+        }
+    }
+        }
+    }
+    
+}
+
+
+// const squaredItrator = squared();
+
+// for(let i =0;i<=5;i++){
+//     console.log(squaredItrator.next());
+// }
+
+for(const n of squared(10)){
+    // console.log(n);
+}
+
+// array destructuring
+const [aa,b,c,d,e] = squared(10);
+//  console.log(aa,b,c,d,e);
+
+function arrayIterator(){
+
+}
+
+class NumberList{
+    constructor(){
+        this.numbers = [1,2,3,4,5];
+
+    }
+
+    [Symbol.iterator](){
+        const numbers = this.numbers;
+        let currentIndex = -1;
+
+        return {
+            next(){
+                return {
+                value:numbers[++currentIndex],
+                done:currentIndex>=numbers.length
+                }
+                
+            }
+        }
+    }
+}
+
+const numListIterator = new NumberList()
+const itertaNum   = numListIterator[Symbol.iterator]()
+// for(let i=0;i<=numListIterator.numbers.length;i++){
+//     console.log(itertaNum.next());
+// }
+
+// for(const num of numListIterator){
+//     console.log(num);
+// }
+
+
+
+
+// Global (/g) Regular Expression :-----------
+
+function regExp(){
+
+    /* (/g)--> let you perofrm multiple mathces on a string,
+
+    --> regEx.exec()
+
+    --> String.matchAll()
+    */let result
+    const testStr = "Hi. I have 5 cats and I have 2 dogs.";
+
+    const re = /I have (\d+) (\w+)/g;
+ ;
+ console.log('Initial last index: ' + re.lastIndex);
+ while((result = re.exec(testStr) )!== null){
+        console.log(result);
+        console.log('Last Index: ' + re.lastIndex);
+
+    }
+
+    const matches = testStr.matchAll(re);
+    const [firstmatch,secondmatch] = matches;
+
+    console.log(firstmatch);
+
+    console.log(secondmatch);
+
+    for(const match of matches){
+        // console.log(match);
+    }
+
+}
+
+// regExp()
+
+
+// How to use Generator Functions in JavaScript:---
+
+function generators(a,b,c){
+    function* generatorExample(){
+        yield a;
+        yield b;
+        yield c;
+        return 'Hello'
+    }
+
+    var generatorFunc = generatorExample();
+
+for(let val of generatorFunc){
+    console.log(val);
+}
+
+}
+
+generators(1,2,3)
+
+// Example 1:---
+function* createSquareNumGen(max){
+    let n=0;
+    while(n <max){
+        n++;
+        yield n*n;
+    }
+  }
+
+
+const squareNum = createSquareNumGen(10);
+for(let a of squareNum){
+    console.log(a);
+};
+
+
+// Example 2:---unique name but not same name
+
+function* createUniqueName(array){
+    const available = array;
+
+    while(available.length !==0){
+
+        const randomIndex = parseInt(Math.random()*available.length);
+
+        const value1 = available[randomIndex];
+        
+        // remove the used value form the list of available values
+        available.splice(randomIndex,1);
+        
+        yield value1
+    }
+}
+const names = ["sarfraj","shelly","timit","asda","ajgfd"];
+const uniqueName = createUniqueName(names)
+
+for(const name of uniqueName){
+    console.log(name);
+};
+
 
