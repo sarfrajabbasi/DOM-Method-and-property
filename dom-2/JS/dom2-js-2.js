@@ -659,7 +659,7 @@ for(let val of generatorFunc){
 
 }
 
-generators(1,2,3)
+// generators(1,2,3)
 
 // Example 1:---
 function* createSquareNumGen(max){
@@ -673,7 +673,7 @@ function* createSquareNumGen(max){
 
 const squareNum = createSquareNumGen(10);
 for(let a of squareNum){
-    console.log(a);
+    // console.log(a);
 };
 
 
@@ -698,7 +698,111 @@ const names = ["sarfraj","shelly","timit","asda","ajgfd"];
 const uniqueName = createUniqueName(names)
 
 for(const name of uniqueName){
-    console.log(name);
+    // console.log(name);
 };
 
 
+// Using Object.entries():------
+
+
+function ObjEntries(){
+    const person = {
+        first:"Sarfraj",
+        last:"Abbasi",
+        age:23,
+        occupation:"Developer",
+    }
+    const entries1 = Object.entries(person)
+    for(let [key,value] of entries1){
+        // console.log(`key => ${key} | value => ${value}`);
+    }
+    
+    // it can take key and value pair
+    
+    const params = new URLSearchParams(entries1);
+    
+    console.log(params.toString());
+}
+// ObjEntries()
+
+// toString() method:-------
+
+function toStringWork(){
+    // change tamplate
+    console.log(Object.prototype.toString.call([]));
+
+
+    // convert array:---
+    const MyArray = [2,3,4,5,6];
+
+    console.log(MyArray.toString());
+    console.log("myArray: " + MyArray );
+
+    // use this for URLserachParams:-----
+
+    const params = new URLSearchParams([["name","sarfraj"],["age",46]]);
+
+    // return query string encoded:-----
+    console.log('my Serach params : ' + params);
+
+    class Reactangle{
+        constructor(width,height,unit){
+            this.width = width;
+            this.height = height;
+            this.unit = unit;
+        }
+
+        toString(){
+            return `Rectangle:(${this.width}x${this.height}${this.unit})`;
+
+        }
+
+    }
+
+    class ColorRectangle extends Reactangle{
+        constructor(width,height,unit,color){
+            super(width,height,unit);
+            this.color  = color
+        }
+        toString(){
+            return `${super.toString()} [${this.color}]`
+        }
+
+    }
+
+    const myRect = new Reactangle(5,8,'cm');
+    const myColorRect = new ColorRectangle(15,79,"cmm","Red");
+    console.log('my rectangle : ' +  myRect);
+    console.log('my rectangle : ' +  myColorRect);
+    // forced to bind
+    console.log('my rectangle : ' +  Reactangle.prototype.toString.call(myColorRect));
+
+}
+
+// toStringWork();
+
+
+
+// Convert JavaScript Maps to Objects - Object.fromEntries():----------
+
+
+function convertIterableIntoObj(){
+    const myMap = new Map();
+    const myArr = [
+        ["search","fattyCat"],
+        ["page","403"],
+        ["flower","rose"],
+    ]
+    myMap.set('name','sarfraj'); 
+    myMap.set('age',23); 
+    console.log(myMap);
+    // convert into an object(take iteratable)
+    const myObj = Object.fromEntries(myMap);
+    const myObj2 = Object.fromEntries(myArr);
+    console.log(myObj);
+    console.log(myObj2);
+
+
+}
+
+// convertIterableIntoObj()
