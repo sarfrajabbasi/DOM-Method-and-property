@@ -100,7 +100,48 @@ for(const value of mySet.values()){
 
 // arrFrom()
 
+// data.json,people.json
 
+// Async Functions & Await:--------
+
+function asyncAwait(){
+    // normal way
+    async function getData(name){
+        const res = await fetch(`../other/${name}.json`);
+        const data = await response.json();
+
+        // return fetch(`../other/${name}.json`).then(res =>{
+        //     // throw new Error('something bad happened!')
+        //     // return res.json()
+
+           
+        // });
+        return data
+
+    }   
+    Promise.all([getData('data'),getData('people'),getData('user'),getData('obj')]).then(res =>{
+        console.log(res);
+    })
+    // async 
+    async function getAllData(){
+        try{
+            const data = await getData('data')
+            const people =  await getData('people');
+            const user  = await getData('user')
+            const  obj = await getData('obj')
+            console.log(data,people,user,obj);
+        }catch(err){
+            console.log(err);
+            console.log('Handled!');
+        }
+        
+    }
+    getAllData()
+    // getAllData().catch(err =>{
+    //     console.log(err);
+    // })
+}
+asyncAwait()
 
 
 

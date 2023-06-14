@@ -94,7 +94,7 @@ let hex2 = "#";
      }
     deg = parseInt(Math.random()*180);
     document.body.style.backgroundImage = `linear-gradient(${deg}deg,${hex1},${hex2})`
-    // console.log(hex1,hex2);
+    console.log(hex1,hex2);
 })
 
 // The call method:----

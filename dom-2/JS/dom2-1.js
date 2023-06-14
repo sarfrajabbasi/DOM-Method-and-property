@@ -47,7 +47,6 @@ customBtn.addEventListener('click',function(){
  
          },1000)
     
-   
 })
 
 

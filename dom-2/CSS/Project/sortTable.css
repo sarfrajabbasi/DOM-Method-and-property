@@ -1,0 +1,50 @@
+.table-sortable th {
+	cursor: pointer;
+}
+
+.table-sortable .th-sort-asc::after {
+	content: "\25b4";
+}
+
+.table-sortable .th-sort-desc::after {
+	content: "\25be";
+}
+
+.table-sortable .th-sort-asc::after,
+.table-sortable .th-sort-desc::after {
+	margin-left: 5px;
+}
+
+.table-sortable .th-sort-asc,
+.table-sortable .th-sort-desc {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+table{
+	width: 500px;
+	border: 2px solid rgb(27, 126, 109);
+	border-collapse: collapse;
+	margin: auto;
+	padding: auto;
+}
+th,td{
+    width: 400px;
+    height: auto;
+	margin: 0px;
+	padding: 0px;
+    font-family: sans-serif;
+    border: 1px solid black;
+	border-left:0px ;
+	border-right:0px ;
+    text-align: center;
+
+}
+th{
+    background-color: #29bd29;
+}
+tr{
+    cursor: pointer;
+}
+td:hover{
+    background-color: rgb(105, 128, 230);
+}
