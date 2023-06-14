@@ -316,18 +316,119 @@ function toggleAttri(){
 // Detect DOM Changes with The Intersection Observer API:----
 
 
-//  boxInterObs
+//  #boxInterObs .containerIterSect
 function interSectionObserver(){
   
   const box = document.getElementById('boxInterObs');
+  const container = document.querySelector('.containerIterSect');
+
+
+
   const callbackFunction = function(entries){
     
     console.log(entries[0]);
+    // if(entries[0].isIntersecting){
+    //   console.log(entries[0].intersectionRatio);
+    // }
 
-  }
+  };
+
   const observer = new IntersectionObserver(callbackFunction,{
-    threshold:0.4
-  })
-  observer.observe(box)
+    // threshold:[0.2,0.5,0.8],
+    // root:container,
+    threshold:0.2,
+    rootMargin:"15px",
+  });
+
+  observer.observe(box);
+  // observer.unobserve(box)
+  observer.disconnect(box)
+
 } 
+
+interSectionObserver();
+
+
+function perpendDing(){
+/**
+ * 
+ * @param {string} el Element that need to create
+ * @param {string} text Text that insert on the element 
+ * @param {string} bg The background of the created element
+ * @param {string} color Text color of the created element
+ * @param {string} border Border of the created element
+ * @param {string} borderRadius Border radius of the created element
+ * @returns {HTMLElement} return the created element
+*/
+
+function createEl(el,text="no text",bg="black",color="white",border="2px solid red",borderRadius ="2px"){
+    const element = document.createElement(el);
+
+    element.textContent = text
+    element.style.background = bg;
+    element.style.color = color;
+    element.style.border = border;
+    element.style.borderRadius = borderRadius;
+
+    return element
+  }
+  
+  const container = document.getElementById('conatiner01');
+  
+  const em = createEl("em") 
+  const strong = createEl("strong",'helloWorld') 
+  const span = createEl('span',"oh oh oh isque tera tadpaye",'red',"white","2px solid black","10px");
+  
+  /**
+   * 
+   * @param {element} parent The element we target for prepending
+   * @param {element} child The element that is insert into the target element
+  */
+ function prePending(parent,...child){
+   parent.prepend(...child)
+  }
+  prePending(container,em,span,strong,"phone");
+
+
+}
+// perpendDing()
+
+// isEqualNode() method:-----
+
+function isEqualNode(){
+
+  const div1 =  document.querySelectorAll('.test')[0]
+  const div2 =  document.querySelectorAll('.test')[1]
+console.log(div1.childNodes,div2.childNodes);
+  const isEqual = div1.isEqualNode(div2);
+  console.log(isEqual);
+
+
+}
+// isEqualNode()
+
+
+// Dynamic Imports:------
+function dynamicImp(){
+
+  // export default function multiply(number,multiplier){
+  //   return number * multiplier;
+  // }
+
+}
+
+dynamicImp();
+
+  // window.scrollTo():---------
+
+  function windowScrollTo(){
+    window.scrollTo({
+      top:200,
+      left:500,
+      behavior:'smooth'
+
+    })
+  };
+
+  windowScrollTo();
 

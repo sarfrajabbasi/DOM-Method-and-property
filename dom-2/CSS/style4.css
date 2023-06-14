@@ -25,3 +25,15 @@
         border: 2px solid rgb(35, 230, 35);
     }
 } */
+
+
+#boxInterObs{
+    width: 200px;
+    height: 200px;
+    border:2px solid black;
+    background-color: red;
+}
+.containerIterSect{
+    height: 250px;
+    overflow-y: auto;
+}

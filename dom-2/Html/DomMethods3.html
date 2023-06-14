@@ -23,14 +23,40 @@
  <input type="text" id="myTextInput" value="my text input">
   
  <hr class="hr">;
- <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque consequatur reiciendis nobis velit ad magni veritatis neque cupiditate distinctio dicta.</p>
-  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque consequatur reiciendis nobis velit ad magni veritatis neque cupiditate distinctio dicta.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus nisi architecto ratione. Possimus quas a, provident ut esse, enim repudiandae rerum delectus earum illo quidem nemo consectetur eaque! Labore libero debitis praesentium provident voluptatem dolores quod, nisi incidunt. Dolores, eum?</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laudantium voluptate ratione, neque ex asperiores, recusandae accusantium explicabo quisquam dignissimos, rem mollitia laboriosam! Ea, voluptas aliquam? Itaque suscipit velit officiis voluptas quam repudiandae autem assumenda vero eum tempora explicabo veritatis provident adipisci neque repellendus placeat rem molestiae, perferendis fugit ex quidem fuga cupiditate ipsum quisquam. Magnam quae, sunt dolor repellendus omnis totam, sed eos laborum enim voluptas debitis, molestias libero veniam tempora quibusdam pariatur blanditiis ab repudiandae magni sapiente reprehenderit quidem suscipit. Aut doloremque numquam in iure reprehenderit vitae harum. Earum quam repellat eos odio tenetur harum at totam eligendi?</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, voluptates corporis voluptas officia nulla odit, qui ea quibusdam similique, eveniet ab labore dolore ut saepe quisquam. Facere reiciendis, magni quis veniam dolorum aut vel, voluptatem officiis quae aspernatur explicabo dignissimos fugiat nesciunt labore enim vero eius expedita ab sunt sint.</p>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, totam ipsam. Perspiciatis facilis, natus optio similique, beatae quia nihil sunt, repellendus deserunt magnam voluptatum accusamus quidem nesciunt unde quo ex architecto aliquid deleniti! Laboriosam sequi saepe nostrum repudiandae porro recusandae reiciendis? Rerum expedita numquam accusamus aut perspiciatis ipsam recusandae dolore cum obcaecati consequuntur nisi pariatur modi quos excepturi perferendis laudantium molestias dicta sit, reiciendis nesciunt eveniet. Molestias doloribus amet consectetur repellat corporis perspiciatis iste vero obcaecati molestiae mollitia eaque, at, est explicabo! Nemo, expedita eius! Odio architecto sint corporis, praesentium cum consectetur! Exercitationem dolore neque veritatis, nulla tenetur beatae deserunt.</p>
-<div id="boxInterObs"></div>
+<!-- <div class="containerIterSect"> -->
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque consequatur reiciendis nobis velit ad magni veritatis neque cupiditate distinctio dicta.</p>
+    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque consequatur reiciendis nobis velit ad magni veritatis neque cupiditate distinctio dicta.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus nisi architecto ratione. Possimus quas a, provident ut esse, enim repudiandae rerum delectus earum illo quidem nemo consectetur eaque! Labore libero debitis praesentium provident voluptatem dolores quod, nisi incidunt. Dolores, eum?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis laudantium voluptate ratione, neque ex asperiores, recusandae accusantium explicabo quisquam dignissimos, rem mollitia laboriosam! Ea, voluptas aliquam? Itaque suscipit velit officiis voluptas quam repudiandae autem assumenda vero eum tempora explicabo veritatis provident adipisci neque repellendus placeat rem molestiae, perferendis fugit ex quidem fuga cupiditate ipsum quisquam. Magnam quae, sunt dolor repellendus omnis totam, sed eos laborum enim voluptas debitis, molestias libero veniam tempora quibusdam pariatur blanditiis ab repudiandae magni sapiente reprehenderit quidem suscipit. Aut doloremque numquam in iure reprehenderit vitae harum. Earum quam repellat eos odio tenetur harum at totam eligendi?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, voluptates corporis voluptas officia nulla odit, qui ea quibusdam similique, eveniet ab labore dolore ut saepe quisquam. Facere reiciendis, magni quis veniam dolorum aut vel, voluptatem officiis quae aspernatur explicabo dignissimos fugiat nesciunt labore enim vero eius expedita ab sunt sint.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, totam ipsam. Perspiciatis facilis, natus optio similique, beatae quia nihil sunt, repellendus deserunt magnam voluptatum accusamus quidem nesciunt unde quo ex architecto aliquid deleniti! Laboriosam sequi saepe nostrum repudiandae porro recusandae reiciendis? Rerum expedita numquam accusamus aut perspiciatis ipsam recusandae dolore cum obcaecati consequuntur nisi pariatur modi quos excepturi perferendis laudantium molestias dicta sit, reiciendis nesciunt eveniet. Molestias doloribus amet consectetur repellat corporis perspiciatis iste vero obcaecati molestiae mollitia eaque, at, est explicabo! Nemo, expedita eius! Odio architecto sint corporis, praesentium cum consectetur! Exercitationem dolore neque veritatis, nulla tenetur beatae deserunt.</p>
+    <div id="boxInterObs"></div>
+<!-- </div> -->
 
+<!-- prepend -->
+<div id="conatiner01" style="margin-top:10px ;">
+    <span>Hey 'how are youuu</span>
+
+</div>
+
+<!-- isEqualNode -->
+<div class="test" >
+
+</div>
+<div class="test" >
+
+</div>
+<button class="button1" id="myButton">Multiply</button>
 </body>
-<script type="text" src="../JS/dom2-3.js"></script>
+
+<script   >
+    document.getElementById('myButton').addEventListener('click',async function(){
+        const modulePath = 1 > 2 ? '../src/something.js' :'../JS/dom-3k.js';
+        
+        const math = await import(modulePath);
+
+        alert(math.default(10,5))
+    })
+</script>
+<script  src="../JS/dom2-3.js"></script>
 </html>
