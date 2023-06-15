@@ -1,3 +1,4 @@
+
 // How to use URL Objects (URL Interface) :----------
 function urlInter() {
   const myUrl = new URL("https://www.youtube.com/");
@@ -431,4 +432,139 @@ dynamicImp();
   };
 
   windowScrollTo();
+
+// elementFromPoint:----
+
+function elementFromPointA(){
+  let pos1;
+
+  document.addEventListener('mousemove',({pageX,pageY})=>{
+     pos1 = document.elementsFromPoint(pageX,pageY);
+     pos1 = document.elementFromPoint(pageX,pageY);
+    
+  })
+}
+
+// elementFromPointA();
+
+
+// rewriting JS form 8y Ago.
+/**
+ * 
+ * @param {number} chatRoomID Indetifies a chat room on the server-side 
+ * @returns {Promise<string>} 
+ */
+
+function fetchMessages(chatRoomID){
+  return fetch(`php/fetch_message.php?chatRoomID=${encodeURIComponent(chatRoomID)}`).then(res =>{
+    return res.text();
+  });
+}
+
+// fetchMessages(15).then(html =>{
+//   document.querySelector('message_Container').innerHTML = html })
+
+
+
+// Using the setSelectionRange() Method:------
+
+function setSelectRange(){
+  const  input = document.querySelector('#renameFile');
+  input.addEventListener('focus',function(){
+    this.setSelectionRange(0,this.value.lastIndexOf("."));
+  })
+}
+
+// setSelectRange()
+
+
+// Using the String.replace() Method:--------
+
+function Strreplace(){
+  const myStr = "Hey, I'm 23 and she's 32";
+  // console.log(myStr.replace(/(\d+)([^\d]+)(\d+)/g,"$3$2$1 $$"));
+  console.log(myStr.replace(/(\d+)([^\d]+)(\d+)/g,function(match,g1,g2,g3){
+
+    console.log(arguments);
+    // return "sarfraj"
+    return parseInt(g1) + parseInt(g3);
+  }));
+  
+}
+
+// Strreplace()
+
+// How to use the Drag and Drop API :----------
+
+function dragAndDropApi(){
+
+  const draggableElement = document.querySelector('#myDraggableElement');
+
+  // when draggable element is dropped onto drop zone
+  draggableElement.addEventListener("dragstart",function(e){
+    console.log(e);
+
+    e.dataTransfer.setData('text/plain',draggableElement.id);
+
+    for(const dropZone of document.querySelectorAll('.drop-zone')){
+
+         // when draggable element is dropped onto drop zone
+      dropZone.addEventListener('dragover',e=>{
+        e.preventDefault();
+
+        dropZone.classList.add('drop-zone--over');
+
+      });
+
+         // when draggable element is dropped onto drop zone
+      dropZone.addEventListener('dragleave',function(e){
+        dropZone.classList.remove('drop-zone--over')
+      })
+
+      // when draggable element is dropped onto drop zone
+      dropZone.addEventListener('drop',e =>{
+        e.preventDefault();
+
+        const droppedElementId = e.dataTransfer.getData('text/plain');
+        
+        document.getElementById('myFileInput').files = e.dataTransfer.files 
+
+        console.log(droppedElementId);
+
+        const droppedElement = document.getElementById(droppedElementId);
+
+         dropZone.appendChild(droppedElement);
+
+         dropZone.classList.remove('drop-zone--over')
+
+      })
+    };
+  })
+}
+
+// dragAndDropApi()
+
+
+// History API:------
+
+function historyApi(){
+  console.log(history.length);
+  history.back(1);
+  history.forward(1);
+  history.go(-2)
+  // history.pushState(null,null,"about");
+  // history.replaceState(15,null,"settings");
+  // history.pushState(40,null,"about");
+  function loadAbout(){
+   const h1 =  document.createElement('h1')
+   h1.textContent= 'I am the about contents'
+    document.body.append(h1);
+    window.addEventListener('popstate',e=>{
+      console.log(e);
+    })
+  }
+  loadAbout()
+} 
+
+// historyApi()
 

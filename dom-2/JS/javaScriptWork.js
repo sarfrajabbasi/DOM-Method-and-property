@@ -141,8 +141,76 @@ function asyncAwait(){
     //     console.log(err);
     // })
 }
-asyncAwait()
+// asyncAwait()
 
 
+// Nullish Coalescing Operator(??):-----
+function nullishCoalescing(){
+    function getUserDefinedSettings(){
+        return {
+            diffculty:'easy',
+            // startingCash:undefined
+            // startingCash:null
+        };
+    }
+    
+    const cash  = getUserDefinedSettings().startingCash ?? 500;
+    const cash1  = getUserDefinedSettings().startingCash ===undefined  ? 500 :getUserDefinedSettings().startingCash;
+    
+    console.log(cash);
+    console.log(cash1);
+    
+}
+// nullishCoalescing();
 
+ 
+function ObjectSpread(){
+    const user = {
+        name:'sarfraj',
+        age:23,
+    }
 
+    const copied = {...user,age:60,occupation:'web developer'}
+    const copied2 = Object.assign({},copied,{
+        name:"chota chetan",
+
+        age:6,
+        occupation:'Don'
+    })
+    const {name,...other} = copied2;
+    console.log(name);
+    console.log(other);
+    console.log(copied);
+    console.log(copied2);
+}
+// ObjectSpread()
+
+// Looping Over Objects:---
+
+function loopObj(){
+    const user ={
+      name:'sarfraj',
+      age:32,
+      occupation:'web Developer'
+    };
+    const obj = {
+        
+        keys1:   Object.keys(user),
+        value1:  Object.values(user),
+        entries1: Object.entries(user),
+    }
+  
+    console.log(Object.keys(user));
+    console.log(Object.values(user));
+    console.log(Object.entries(user));
+    function loopIt(obj){
+        for(let thing of obj){
+            console.log(thing);
+        }
+    }
+    loopIt(obj.keys1)
+    loopIt(obj.value1)
+    loopIt(obj.entries1)
+  }
+
+  loopObj()

@@ -47,9 +47,23 @@
 
 </div>
 <button class="button1" id="myButton">Multiply</button>
+
+<label for="renameFile">Rename File</label>
+<input type="text" id="renameFile" value = "sample-file.text">
+<hr>
+<br>
+<br>
+
+<!-- drag and drop -->
+<div class="drop-zone" style="border-color:#DE4031">
+<div id="myDraggableElement" draggable="true"></div>
+</div>
+<div class="drop-zone" style="border-color:#31CFDE"></div>
+
+<input type="file" id="myInput01">
 </body>
 
-<script   >
+<!-- <script   >
     document.getElementById('myButton').addEventListener('click',async function(){
         const modulePath = 1 > 2 ? '../src/something.js' :'../JS/dom-3k.js';
         
@@ -57,6 +71,6 @@
 
         alert(math.default(10,5))
     })
-</script>
+</script> -->
 <script  src="../JS/dom2-3.js"></script>
 </html>
