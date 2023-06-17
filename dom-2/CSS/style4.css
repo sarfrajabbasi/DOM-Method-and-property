@@ -58,3 +58,42 @@
     height: 50px;
     background: #000000;
 }
+
+button{
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: white;
+    background: rgb(28, 52, 155);
+    border: 2px solid black;
+}
+
+
+#ImagePreview{
+margin-top: 20px;
+    width: 500px;
+    height: 300px;
+}
+
+#boxEvent{
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    background: blue;
+    border: 2px solid black ;
+}
+
+#nameInput{
+    margin-top: 20px;
+}
+#nameInput:focus{
+    margin-top: 20px;
+     background: rgb(211, 204, 204);
+}
+
+#avatar{
+    border-radius: 50% ;
+    box-shadow:5px,5px black;
+}

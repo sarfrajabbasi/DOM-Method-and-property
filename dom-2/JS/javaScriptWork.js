@@ -213,4 +213,35 @@ function loopObj(){
     loopIt(obj.entries1)
   }
 
-  loopObj()
+//   loopObj()
+
+
+// copyWithin:-----------
+
+  function copyWithin1(){
+    const myArr =["q","w","e","r","t","y"];
+
+   const returnedArray= myArr.copyWithin(0,3,-1);
+
+    console.log(myArr);
+    console.log(myArr === returnedArray);
+  }
+
+  copyWithin1()
+  
+
+//  Merage Arrays in JS:---(concat,spread)
+
+function merageArr(){
+    const nums = ["fish","gelly","mermaid","batak"];
+const pets = ["horse","billy","kuta","ghoda"];
+const merged = nums.concat(pets,["html","js","css"]);
+const merged2 = [...pets,["html","js","css"],...nums];
+console.log(merged);
+console.log(merged2);
+}
+
+// merageArr()
+
+// 
+

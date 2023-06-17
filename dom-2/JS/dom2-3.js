@@ -1,4 +1,3 @@
-
 // How to use URL Objects (URL Interface) :----------
 function urlInter() {
   const myUrl = new URL("https://www.youtube.com/");
@@ -223,7 +222,6 @@ function fullScreenApi() {
 // How to use Proxy Object:---
 
 function proxyObject() {
-
   const gameSettings = {};
 
   const gameSettingsProxy = new Proxy(gameSettings, {
@@ -236,227 +234,217 @@ function proxyObject() {
       return property in o ? o[property] : "sarfraj";
     },
     set: (o, property, value) => {
-      if(property === "difficulty" && !["easy","medium","hard"].includes(value.toLowerCase())){
-        throw new Error('difficulty is invalid ');
+      if (
+        property === "difficulty" &&
+        !["easy", "medium", "hard"].includes(value.toLowerCase())
+      ) {
+        throw new Error("difficulty is invalid ");
       }
     },
 
-    has:(o,property)=>{
-      if(property === "difficulty"){
-        return false
+    has: (o, property) => {
+      if (property === "difficulty") {
+        return false;
       }
-      return property in o
-    }
+      return property in o;
+    },
   });
 
   gameSettingsProxy.difficulty = "easy";
 
-console.log("difficulty" in gameSettingsProxy);
-
+  console.log("difficulty" in gameSettingsProxy);
 
   console.log(gameSettingsProxy.difficulty);
 }
 
 // proxyObject();
 
-
 // Detect OS dark or light mode with css and JS:--------
 
-
-function detectOSDarkorLightMode(){
- console.log( window.matchMedia('prefers-color-scheme : dark').matches);
+function detectOSDarkorLightMode() {
+  console.log(window.matchMedia("prefers-color-scheme : dark").matches);
 }
 
 // detectOSDarkorLightMode()
 
-
-
 // Detecting Screen Size and OS Dark Mode with matchMedia():-------
 
-function matchMedia1(){
+function matchMedia1() {
   // const matchResult = window.matchMedia('max-width:767px');
-  const matchResult = window.matchMedia('prefers-color-scheme:dark')
+  const matchResult = window.matchMedia("prefers-color-scheme:dark");
 
   // console.log(matchResult);
 
-  function isSmallScreen(){
-  //  return matchResult('max-width:767px').matches
-   console.log( matchResult.matches);
+  function isSmallScreen() {
+    //  return matchResult('max-width:767px').matches
+    console.log(matchResult.matches);
   }
 
-  isSmallScreen()
-
+  isSmallScreen();
 }
 // matchMedia1();
 
 // Page Visibility API in JS:--------
 
-function visibility(){
-  document.addEventListener('visibilitychange',function(){
+function visibility() {
+  document.addEventListener("visibilitychange", function () {
     document.title = document.visibilityState;
     console.log(document.visibilityState);
-    const h1 = document.createElement('h1');
+    const h1 = document.createElement("h1");
     h1.textContent = document.visibilityState;
-    h1.style.color = "red"
+    h1.style.color = "red";
     // document.body.appendChild(h1);
     console.log(document.hidden);
-  
   });
-
 }
 
-visibility()
+visibility();
 
-function toggleAttri(){
-   const myInput = document.getElementById('myTextInput');
-   myInput.toggleAttribute('disabled',2 > 1)
-  
-
+function toggleAttri() {
+  const myInput = document.getElementById("myTextInput");
+  myInput.toggleAttribute("disabled", 2 > 1);
 }
 
 // Detect DOM Changes with The Intersection Observer API:----
 
-
 //  #boxInterObs .containerIterSect
-function interSectionObserver(){
-  
-  const box = document.getElementById('boxInterObs');
-  const container = document.querySelector('.containerIterSect');
+function interSectionObserver() {
+  const box = document.getElementById("boxInterObs");
+  const container = document.querySelector(".containerIterSect");
 
-
-
-  const callbackFunction = function(entries){
-    
+  const callbackFunction = function (entries) {
     console.log(entries[0]);
     // if(entries[0].isIntersecting){
     //   console.log(entries[0].intersectionRatio);
     // }
-
   };
 
-  const observer = new IntersectionObserver(callbackFunction,{
+  const observer = new IntersectionObserver(callbackFunction, {
     // threshold:[0.2,0.5,0.8],
     // root:container,
-    threshold:0.2,
-    rootMargin:"15px",
+    threshold: 0.2,
+    rootMargin: "15px",
   });
 
   observer.observe(box);
   // observer.unobserve(box)
-  observer.disconnect(box)
-
-} 
+  observer.disconnect(box);
+}
 
 interSectionObserver();
 
+function perpendDing() {
+  /**
+   *
+   * @param {string} el Element that need to create
+   * @param {string} text Text that insert on the element
+   * @param {string} bg The background of the created element
+   * @param {string} color Text color of the created element
+   * @param {string} border Border of the created element
+   * @param {string} borderRadius Border radius of the created element
+   * @returns {HTMLElement} return the created element
+   */
 
-function perpendDing(){
-/**
- * 
- * @param {string} el Element that need to create
- * @param {string} text Text that insert on the element 
- * @param {string} bg The background of the created element
- * @param {string} color Text color of the created element
- * @param {string} border Border of the created element
- * @param {string} borderRadius Border radius of the created element
- * @returns {HTMLElement} return the created element
-*/
-
-function createEl(el,text="no text",bg="black",color="white",border="2px solid red",borderRadius ="2px"){
+  function createEl(
+    el,
+    text = "no text",
+    bg = "black",
+    color = "white",
+    border = "2px solid red",
+    borderRadius = "2px"
+  ) {
     const element = document.createElement(el);
 
-    element.textContent = text
+    element.textContent = text;
     element.style.background = bg;
     element.style.color = color;
     element.style.border = border;
     element.style.borderRadius = borderRadius;
 
-    return element
+    return element;
   }
-  
-  const container = document.getElementById('conatiner01');
-  
-  const em = createEl("em") 
-  const strong = createEl("strong",'helloWorld') 
-  const span = createEl('span',"oh oh oh isque tera tadpaye",'red',"white","2px solid black","10px");
-  
+
+  const container = document.getElementById("conatiner01");
+
+  const em = createEl("em");
+  const strong = createEl("strong", "helloWorld");
+  const span = createEl(
+    "span",
+    "oh oh oh isque tera tadpaye",
+    "red",
+    "white",
+    "2px solid black",
+    "10px"
+  );
+
   /**
-   * 
+   *
    * @param {element} parent The element we target for prepending
    * @param {element} child The element that is insert into the target element
-  */
- function prePending(parent,...child){
-   parent.prepend(...child)
+   */
+  function prePending(parent, ...child) {
+    parent.prepend(...child);
   }
-  prePending(container,em,span,strong,"phone");
-
-
+  prePending(container, em, span, strong, "phone");
 }
 // perpendDing()
 
 // isEqualNode() method:-----
 
-function isEqualNode(){
-
-  const div1 =  document.querySelectorAll('.test')[0]
-  const div2 =  document.querySelectorAll('.test')[1]
-console.log(div1.childNodes,div2.childNodes);
+function isEqualNode() {
+  const div1 = document.querySelectorAll(".test")[0];
+  const div2 = document.querySelectorAll(".test")[1];
+  console.log(div1.childNodes, div2.childNodes);
   const isEqual = div1.isEqualNode(div2);
   console.log(isEqual);
-
-
 }
 // isEqualNode()
 
-
 // Dynamic Imports:------
-function dynamicImp(){
-
+function dynamicImp() {
   // export default function multiply(number,multiplier){
   //   return number * multiplier;
   // }
-
 }
 
 dynamicImp();
 
-  // window.scrollTo():---------
+// window.scrollTo():---------
 
-  function windowScrollTo(){
-    window.scrollTo({
-      top:200,
-      left:500,
-      behavior:'smooth'
+function windowScrollTo() {
+  window.scrollTo({
+    top: 200,
+    left: 500,
+    behavior: "smooth",
+  });
+}
 
-    })
-  };
-
-  windowScrollTo();
+windowScrollTo();
 
 // elementFromPoint:----
 
-function elementFromPointA(){
+function elementFromPointA() {
   let pos1;
 
-  document.addEventListener('mousemove',({pageX,pageY})=>{
-     pos1 = document.elementsFromPoint(pageX,pageY);
-     pos1 = document.elementFromPoint(pageX,pageY);
-    
-  })
+  document.addEventListener("mousemove", ({ pageX, pageY }) => {
+    pos1 = document.elementsFromPoint(pageX, pageY);
+    pos1 = document.elementFromPoint(pageX, pageY);
+  });
 }
 
 // elementFromPointA();
 
-
 // rewriting JS form 8y Ago.
 /**
- * 
- * @param {number} chatRoomID Indetifies a chat room on the server-side 
- * @returns {Promise<string>} 
+ *
+ * @param {number} chatRoomID Indetifies a chat room on the server-side
+ * @returns {Promise<string>}
  */
 
-function fetchMessages(chatRoomID){
-  return fetch(`php/fetch_message.php?chatRoomID=${encodeURIComponent(chatRoomID)}`).then(res =>{
+function fetchMessages(chatRoomID) {
+  return fetch(
+    `php/fetch_message.php?chatRoomID=${encodeURIComponent(chatRoomID)}`
+  ).then((res) => {
     return res.text();
   });
 }
@@ -464,107 +452,254 @@ function fetchMessages(chatRoomID){
 // fetchMessages(15).then(html =>{
 //   document.querySelector('message_Container').innerHTML = html })
 
-
-
 // Using the setSelectionRange() Method:------
 
-function setSelectRange(){
-  const  input = document.querySelector('#renameFile');
-  input.addEventListener('focus',function(){
-    this.setSelectionRange(0,this.value.lastIndexOf("."));
-  })
+function setSelectRange() {
+  const input = document.querySelector("#renameFile");
+  input.addEventListener("focus", function () {
+    this.setSelectionRange(0, this.value.lastIndexOf("."));
+  });
 }
 
 // setSelectRange()
 
-
 // Using the String.replace() Method:--------
 
-function Strreplace(){
+function Strreplace() {
   const myStr = "Hey, I'm 23 and she's 32";
   // console.log(myStr.replace(/(\d+)([^\d]+)(\d+)/g,"$3$2$1 $$"));
-  console.log(myStr.replace(/(\d+)([^\d]+)(\d+)/g,function(match,g1,g2,g3){
-
-    console.log(arguments);
-    // return "sarfraj"
-    return parseInt(g1) + parseInt(g3);
-  }));
-  
+  console.log(
+    myStr.replace(/(\d+)([^\d]+)(\d+)/g, function (match, g1, g2, g3) {
+      console.log(arguments);
+      // return "sarfraj"
+      return parseInt(g1) + parseInt(g3);
+    })
+  );
 }
 
 // Strreplace()
 
 // How to use the Drag and Drop API :----------
 
-function dragAndDropApi(){
-
-  const draggableElement = document.querySelector('#myDraggableElement');
+function dragAndDropApi() {
+  const draggableElement = document.querySelector("#myDraggableElement");
 
   // when draggable element is dropped onto drop zone
-  draggableElement.addEventListener("dragstart",function(e){
+  draggableElement.addEventListener("dragstart", function (e) {
     console.log(e);
 
-    e.dataTransfer.setData('text/plain',draggableElement.id);
+    e.dataTransfer.setData("text/plain", draggableElement.id);
 
-    for(const dropZone of document.querySelectorAll('.drop-zone')){
-
-         // when draggable element is dropped onto drop zone
-      dropZone.addEventListener('dragover',e=>{
+    for (const dropZone of document.querySelectorAll(".drop-zone")) {
+      // when draggable element is dropped onto drop zone
+      dropZone.addEventListener("dragover", (e) => {
         e.preventDefault();
 
-        dropZone.classList.add('drop-zone--over');
-
+        dropZone.classList.add("drop-zone--over");
       });
 
-         // when draggable element is dropped onto drop zone
-      dropZone.addEventListener('dragleave',function(e){
-        dropZone.classList.remove('drop-zone--over')
-      })
+      // when draggable element is dropped onto drop zone
+      dropZone.addEventListener("dragleave", function (e) {
+        dropZone.classList.remove("drop-zone--over");
+      });
 
       // when draggable element is dropped onto drop zone
-      dropZone.addEventListener('drop',e =>{
+      dropZone.addEventListener("drop", (e) => {
         e.preventDefault();
 
-        const droppedElementId = e.dataTransfer.getData('text/plain');
-        
-        document.getElementById('myFileInput').files = e.dataTransfer.files 
+        const droppedElementId = e.dataTransfer.getData("text/plain");
+
+        document.getElementById("myFileInput").files = e.dataTransfer.files;
 
         console.log(droppedElementId);
 
         const droppedElement = document.getElementById(droppedElementId);
 
-         dropZone.appendChild(droppedElement);
+        dropZone.appendChild(droppedElement);
 
-         dropZone.classList.remove('drop-zone--over')
-
-      })
-    };
-  })
+        dropZone.classList.remove("drop-zone--over");
+      });
+    }
+  });
 }
 
 // dragAndDropApi()
 
-
 // History API:------
 
-function historyApi(){
+function historyApi() {
   console.log(history.length);
   history.back(1);
   history.forward(1);
-  history.go(-2)
+  history.go(-2);
   // history.pushState(null,null,"about");
   // history.replaceState(15,null,"settings");
   // history.pushState(40,null,"about");
-  function loadAbout(){
-   const h1 =  document.createElement('h1')
-   h1.textContent= 'I am the about contents'
+  function loadAbout() {
+    const h1 = document.createElement("h1");
+    h1.textContent = "I am the about contents";
     document.body.append(h1);
-    window.addEventListener('popstate',e=>{
+    window.addEventListener("popstate", (e) => {
       console.log(e);
-    })
+    });
   }
-  loadAbout()
-} 
+  loadAbout();
+}
 
 // historyApi()
 
+function asyncAwait() {
+  async function loadUsers() {
+    // const response = await fetch('../other/user.json');
+
+    // const user = await response.json();
+
+    // return user
+    return (await fetch("../other/user.json")).json();
+  }
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    let user = [];
+
+    try {
+      user = await loadUsers();
+    } catch (e) {
+      console.log("Error!");
+      console.log(e);
+    }
+    console.log(user);
+  });
+}
+
+//  asyncAwait();
+
+function pasteFilesFormClipboard() {
+  window.addEventListener("paste", (e) => {
+    if (e.clipboardData.files) {
+      const inputFiles = document.querySelector("#myFile");
+      inputFiles.files = e.clipboardData.files;
+      if (e.clipboardData.files[0].type.startsWith("image/")) {
+        setPrivewImage(e.clipboardData.files[0]);
+      }
+    }
+  });
+
+  function setPrivewImage(file) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+
+    fileReader.onload = () => {
+      document.querySelector("#ImagePreview").src = fileReader.result;
+    };
+  }
+}
+
+// pasteFilesFormClipboard();
+
+function Events() {
+  // console.log(this);
+
+  function handleBox() {
+    console.log(this);
+    // alert('you click on the box')
+  }
+  // handleBox()
+
+  const boxEvent = document.querySelector("#boxEvent");
+
+  boxEvent.addEventListener("click", function (e) {
+    // handleBox()
+    // console.log(e);
+    console.log(this);
+  });
+  boxEvent.addEventListener("mouseover", (e) => {
+    // handleBox()
+    // console.log(e);
+    console.log(this);
+  });
+}
+
+// Events()
+
+function focusAndBlur() {
+  const nameInp = document.getElementById("nameInput");
+  nameInp.addEventListener("focus", (e) => {
+    alert("this element has focus ");
+  });
+}
+// focusAndBlur()
+
+// Build a User Avatar Image generator :-----
+
+function avataImgGene() {
+  function generateAvatar(
+    text,
+    forgroundColor = "white",
+    backgroundColor = "black"
+  ) {
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    canvas.style.marginTop = "50px";
+    canvas.width = 200;
+    canvas.height = 200;
+
+    // Draw background
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw text
+
+    context.font = "bold 30px Assistent";
+    context.fillStyle = forgroundColor;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+
+    context.fillText(text, canvas.width / 2, canvas.height / 2);
+
+    return canvas.toDataURL("image/png");
+  }
+
+  document.getElementById("avatar").src = generateAvatar(
+    "Sarfraj Abbasi",
+    "white",
+    "#001578"
+  );
+}
+
+// avataImgGene()
+
+// Displaying Dates in JS:---------
+
+function displayingDates() {
+  /**
+   *
+   * @param {Date} dateObj
+   * @returns
+   */
+  function forMateDate(dateObj) {
+    const parts = {
+      date: dateObj.getDate(),
+      month: dateObj.getMonth() + 1,
+      year: dateObj.getFullYear(),
+      hour: dateObj.getHours() %12 || 12,
+      minute:dateObj.getMinutes().toString().padStart(2,"0"),
+      AmOrPm: dateObj.getHours() < 12? "AM":"PM"
+    };
+    console.log(parts);
+
+    return `${parts.date}/${parts.month}/${parts.year} ${parts.hour}:${parts.minute} ${parts.AmOrPm}`;
+  }
+  const myDate = new Date();
+  // const myDate = new Date("2023-06-17 2:04");
+  const myDateFormatted = forMateDate(myDate);
+  console.log(myDateFormatted);
+}
+
+displayingDates();
+
+
+// How to detect Click and Hold Events:---
+
+function detectClickAndHold(){
+
+}

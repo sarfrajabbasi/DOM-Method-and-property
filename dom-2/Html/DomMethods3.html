@@ -59,9 +59,31 @@
 <div id="myDraggableElement" draggable="true"></div>
 </div>
 <div class="drop-zone" style="border-color:#31CFDE"></div>
-
 <input type="file" id="myInput01">
+
+<br>
+<br>
+
+<!-- How to paste files from the chlipboard -->
+
+<form action="./index.html" method="post" enctype="multipart/form-data">
+    <input type="file" name="myFile" id="myFile">
+    <button type="submit">Upload</button>
+</form>
+<img  alt="image-preview" id="ImagePreview">
+
+<!-- event -->
+<!-- <div id="boxEvent" onmouseover="alert('Hover!')" onclick="alert('hello DJ Dolly')"></div> -->
+<div id="boxEvent"></div>
 </body>
+
+
+<!-- focus and blur -->
+Enter your name: <input type="text" id="nameInput">
+
+<!-- Build a User Avatar Image generator -->
+
+<img  alt="Avatar" id="avatar">
 
 <!-- <script   >
     document.getElementById('myButton').addEventListener('click',async function(){
