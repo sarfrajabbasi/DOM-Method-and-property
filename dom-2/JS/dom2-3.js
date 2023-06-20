@@ -695,11 +695,220 @@ function displayingDates() {
   console.log(myDateFormatted);
 }
 
-displayingDates();
+// displayingDates();
 
 
 // How to detect Click and Hold Events:---
 
 function detectClickAndHold(){
+  class ClickAndHold{
+    /**
+     * 
+     * @param {EventTarget} target The HTML element to apply the event to 
+     * @param {Function} callback The function to run once the target is clicked and hold
+     */
+    constructor(target,callback){
+      this.target = target;
+      this.callback = callback;
+      this.isheld = false;
+      this.activeHoldTimeoutId = null;
+      ["mousedown","touchStart"].forEach(type =>{
+        this.target.addEventListener(type,this._onHoldStart.bind(this))
+      })
+      
+      ["mouseup","touchend","mouseleave","mouseout","touchcancel"].forEach(type =>{
+        this.target.addEventListener(type,this._onHoldEnd.bind(this))
+      })
+
+
+    }
+    _onHoldStart(){
+      this.isheld = true
+      this.activeHoldTimeoutId = setTimeout(()=>{
+        if(this.isheld){
+          this.callback();
+        }
+      },1000)
+    }
+    _onHoldEnd(){
+      this.isheld = true;
+      clearTimeout(this.activeHoldTimeoutId)
+    }
+    /**
+     * 
+     * @param {EventTarget} target  The HTML element to apply the event to
+     * @param {Function} callback The function to run once the target is clicked and held
+     */
+    static apply(target,callback){
+      new ClickAndHold(target,callback)
+    }
+  }
+
+  const myButton = document.getElementById('mybtn1');
+  ClickAndHold.apply(myButton,()=>{
+    alert('click and hold')
+  })
+}
+// detectClickAndHold()
+
+
+
+// How to Use JSON:------
+
+function UseJson(){
+const car ={
+
+  make:'Honda',
+  model:'Civic',
 
 }
+const car2 = ["Honda","Madza","Ford"];
+
+  const meJson = {
+    name:"sarfraj",
+    age:35,
+    graduated:true,
+    favoriteColors:[
+      "blue",
+      "Green"
+    ],
+  }
+  // stringify
+const jsonString = JSON.stringify(meJson)
+const carJson = JSON.stringify(car)
+
+// Parse
+const me = JSON.parse(jsonString);
+const carobj = JSON.parse(carJson);
+
+console.log(me);
+console.log(carobj);
+
+};
+
+// UseJson();
+
+// Using the Geolocation API:-----------
+
+function geolocation(){
+
+  const successCallback = (position) =>{
+
+    console.log(position);
+
+  };
+  
+  const errorCallback = (error) =>{
+
+    console.log(error);
+    
+  };
+
+const watchId = navigator.geolocation.watchPosition(successCallback,errorCallback);
+
+navigator.geolocation.getCurrentPosition(successCallback,errorCallback,{
+  enableHighAccuracy:true,
+  timeout:5000,
+
+});
+// navigator.geolocation.clearWatch(watchId);
+
+};
+
+// geolocation();
+
+
+// fetch API in JS for AJAX Developers:----
+
+function fetchApiAjax(){
+
+ function xhrthing(){
+  const xhr = new XMLHttpRequest();
+
+  if(xhr.readyState === 4 && xhr.status === 20){
+    const user = JSON.parse(xhr.responseText);
+    xhr.open('GET','../other/user.json',true);
+    xhr.send();
+    console.log(user);
+  }
+ }
+//  xhrthing()
+
+ function fetchApi(){
+
+  fetch('../other/user.json').then(response =>{
+
+    return response.json().then(user =>{
+      console.log(user);
+      return user;
+    }).catch(e =>{
+      console.log(e);
+    });
+  })
+ }
+
+//  fetchApi()
+
+async function fetchAwait(){
+  // wait
+const res = await fetch('../other/user.json')
+const user  = await res.json();
+
+console.log(user);
+
+ }
+
+ fetchAwait()
+
+}
+// fetchApiAjax()
+
+
+// How to Send GraphQL Requests with Fetch API:----
+
+function showGraphQLData(){
+  const query  =`
+  query($nameStartWith:String){
+    user(nameStartWith:$namestarts){
+      id,
+      firstName,
+      lastName,
+      city,
+
+    }
+  }`;
+
+  fetch('http://localhost:4000/graphql',{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "Accept":"application/json",
+    },
+    body:JSON.stringify({
+      query,
+      variables:{
+        nameStartsWith:"s"
+      }
+    
+  })}).then(res =>{
+    return res.json();
+  }).then(data =>{
+    console.log(data);
+  }).catch(e =>{
+    console.log(e);
+  })
+}
+
+
+
+// what does e mean in js:----
+
+function eventJS(){
+  const myBtn =document.getElementById('myBtn1')
+  myBtn.addEventListener('click',function(e){
+    const ctrlKeys = e.ctrlKey ? "CTRL key was pressed while clicking.":"CTRl key not press";
+    console.log(ctrlKeys);
+  })
+}
+// eventJS()
+
