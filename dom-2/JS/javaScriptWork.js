@@ -596,6 +596,41 @@ console.log(a);
 
 // jsTrick();
 
+// One of the most Important parts of js:----
+
+ function truthyFalsy(){
+const fasly = [
+    0,
+    -0,
+    false,
+    "",
+    null,
+    undefined,
+    NaN,
+    0n,
+    document.all,
+];
+const name =  false[4] || "unknown"
+
+ }
+
+//  truthyFalsy();
+
+
+// // One of the most POWERFUL features of JavaScript:----
+
+function replaceMethod(){
+     const a = '3 is before 4 and 8 is afetr 6 but beforcle 9';
+     const noMoreEvens =  a.replace(/\d/g,num =>{
+        // /radix  10
+        num = parseInt(num,10);
+
+        return num %2 ==0 ? "@":num;
+     });
+     console.log(noMoreEvens);
+}
+// replaceMethod()
+
 
 // 
 

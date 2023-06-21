@@ -77,3 +77,101 @@ function dataBinding(){
 // dataBinding();
 
 
+// Extending Built-In Data Types with JavaScript:--------
+
+ function extendBuiltInDataTypes(){
+     class ObservableArray extends Array{
+        constructor(onpush,...elements){
+            super(...elements);
+            this.onpush = onpush;
+
+            this.onpush?.(this);
+        }
+         
+        push(...elements){
+            super.push(...elements); 
+            // the item gonna push on this 
+            this.onpush?.(this)
+
+        }
+
+     }
+
+     const onPush = array =>{
+        const myList = document.getElementById('myList');
+        myList.innerHTML = "";
+
+        for(const name  of array){
+            myList.insertAdjacentHTML('beforeend',`<li>${name}</li>`)
+        }
+     }
+     const obervableArr = new ObservableArray(onPush ,"lords","greek","gold","goli","tapu");
+
+     console.log(obervableArr);
+ }
+
+//  extendBuiltInDataTypes();
+
+
+// How to Easily Call APIs With Fetch and Async/Await in JavaScript:--
+
+async function getUserCountry(){
+    const username = document.getElementById('usernameGet').value;
+     
+    if(!username){
+        alert('Please enter a username.')
+        return;
+    }
+
+    const endPoint = new URL(`http://localhost:3000/users/${username}/country`);
+    endPoint.searchParams.set('token',"YOUR_TOKEN_HERE");
+    console.log(endPoint.toString());
+
+    const response = await fetch(endPoint,{
+       headers:{
+        "Authorization":"YOUR_TOKEN_HERE",
+       }
+    });
+
+    if(response.status === 404){
+        alert('Username not found.');
+        return;
+    }
+    console.log(response);
+
+    const data = await response.json();
+
+    alert(data)
+}
+
+// The Best Way to Create HTML Elements with JavaScript:--
+
+function createHtmlEl(){
+  function elemet(html){
+    const template = document.createElement("template");
+
+    template.innerHTML = html.trim();
+    return template.content.firstElementChild; 
+  }
+  const myElement = elemet(`
+  <ul>
+  <li>hello</li>
+  <li>how</li>
+  <li>are</li>
+  <li>you</li>
+  <li>!</li>
+  </ul>
+  `)
+
+  document.body.appendChild(myElement)
+
+}
+
+// createHtmlEl()
+
+
+
+// defer attribute:----
+
+
+
