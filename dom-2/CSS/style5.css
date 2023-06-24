@@ -29,3 +29,75 @@ body {
     font-weight: bold;
   }
   
+  /* The best way to enable css animantion */
+
+  .square{
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background: #950000;
+  }
+
+  .support-hidden{
+    transition: opacity 0.5s; 
+  }
+
+  .circle{
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background: #009578;
+    border-radius: 50%;
+    
+  }
+  .pulse{
+    animation: pulse 0.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%{
+      opacity: 1;
+      transform: scale(1);
+    }
+    50%{
+      opacity: 0.5;
+      transform: scale(0.75);
+    }
+    
+    100%{
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .hidden{
+    opacity: 0;
+  }
+
+
+  button{
+    background-color: blue;
+    color: white;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  /* download image */
+
+  #myImage{
+    height: 250px;
+    display: block;
+  }
+
+  .button2{
+    height: 40px;
+    padding: 6px 12px;
+    margin: 0.5em 0;
+    background: #009578;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
