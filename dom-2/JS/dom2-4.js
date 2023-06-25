@@ -439,4 +439,102 @@ for(const tut of tutorials){
 // parseXMlWithJS()
 
 
-// 
+// How to Easily Detect Mobile Devices with js:-----
+
+function isMobile(){
+
+const mobile = /Android|iPhone/i.test(navigator.userAgent);
+const navMaxTPoints = navigator.maxTouchPoints > 0 && mobile;
+
+console.log(navMaxTPoints);
+// console.log(mobile);
+}
+
+// isMobile()
+
+
+// How to Download HTML5 Canvas Images with JavaScript:-----
+
+
+function downloadImage(){
+  const canvas01 = document.getElementById('canvas01');
+  console.log(canvas01);
+  const ctx = canvas01.getContext('2d');
+  const canvasDowload = document.getElementById('canvasDowload');
+
+  ctx.fillStyle = "#222222";
+  ctx.fillRect(0,0,canvas01.width,canvas01.height);
+
+  ctx.fillStyle = "#009578";
+  ctx.fillRect(25,25,100,100);
+  const pngDataUrl = canvas01.toDataURL('imgae/png');
+
+  console.log(pngDataUrl);
+  canvasDowload.href = pngDataUrl
+
+
+}
+// downloadImage()
+
+// How to Interact with the Keyboard:----
+
+
+function intreactWithKeyboard(){
+
+// keydown,keyUp,keypress
+  document.body.addEventListener('keyup',(e)=>{
+    console.log(e.key.toUpperCase());
+  });
+
+}
+
+// intreactWithKeyboard()
+
+// replaceChildren:---
+
+function replaceChild(){
+
+  // move lsit one place to aanother place
+const listOne = document.getElementById('listOne');
+const listTwo = document.getElementById('listTwo');
+
+const listOneItems = listOne.querySelectorAll('li');
+const listTwoItems = listTwo.querySelectorAll('li');
+
+listOne.replaceChildren(...listTwoItems);
+listTwo.replaceChildren(...listOneItems);
+}
+
+// replaceChild()
+
+
+// There's More to Know About Query Selector:---
+
+
+function querySelec(){
+
+  const successTable = document.querySelector('.success-table');
+  const failureTable = document.querySelector('.failure-table');
+
+  // odd and even
+  const oddSuccess = document.querySelectorAll('.success-table tr:nth-child(odd)');
+  const oddfailure = document.querySelectorAll('.failure-table tr:nth-child(odd)');
+
+// data-set
+  const selectedRow = document.querySelector('tr[data-selected = "true"]')
+  const successRows = successTable.querySelectorAll('tr')
+  console.log(oddSuccess);
+  console.log(selectedRow);
+  console.log(successRows);
+
+
+}
+
+// querySelec()
+
+
+
+
+
+
+

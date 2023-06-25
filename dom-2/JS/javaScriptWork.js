@@ -1158,4 +1158,144 @@ function sevenPowerfulJsMethods() {
 // sevenPowerfulJsMethods();
 
 
+// The most powerful Js mehods(reduce):----
 
+function mostPowJsMethods(){
+  const people = [
+    {
+      name:"sarfraj",
+      salary:2500,
+    },{
+      name:"Johnny",
+      salary:8500,
+    },{
+      name:"Christina",
+      salary:600,
+    },
+  ];
+
+const highestEarner = people.reduce((currHighest,person)=>{
+  if(currHighest === null || person.salary > currHighest.salary){
+    return person;
+  }
+  return currHighest
+},null);
+
+console.log(highestEarner);
+
+}
+
+// mostPowJsMethods()
+
+// The best way to Declare variables in JS:---
+
+
+
+function declareVar(){
+{
+  // let a = 20
+  var a =10
+}
+console.log(a);
+var a =20
+}
+
+// declareVar()
+
+
+function addItemsToArr(){
+
+  const numbers = [14,6,18,2];
+  const pets = ["Dog","cat","fish"];
+  const names = ["Johnny","Dom","Rachel"];
+  const drinks = ["Organge Juice","Cola"];
+
+  const devices  = ["Laptop","Desktop"]
+
+  // push
+  numbers.push(35);
+
+  // unshift
+  pets.unshift("Bird");
+
+  // splice
+
+  names.splice(1,0,"sarfraj")
+
+  // adding new item in from of merging:--
+
+  // concat:--
+
+  const moreDrinks = drinks.concat(["water","poison","blood"],["cynide with NO3","cuff-syrup","milk"]);
+
+  // spead syntax:---
+
+  const moreDevices = [...devices,...["Mobile Phone","Tablet"]];
+
+  console.log(numbers);
+  console.log(pets);
+  console.log(names);
+  console.log(moreDrinks);
+  console.log(moreDevices);
+   
+
+}
+
+// addItemsToArr();
+
+
+
+// Maps vs. Objects in JavaScript - What's the Difference
+
+
+function mapsVsObj(){
+
+  const personObj = {
+    name:"sarf",
+    age:23,
+    occupation:"Software Developer",
+
+  }
+
+  const peronMap = new Map();
+
+  peronMap.set('naam kya ha',"Sarfaj naam h");
+  peronMap.set('Umar',"23 saal ka hu");
+  peronMap.set('kya kaam karta ha tu',"Software Developer hu ");
+
+  // Loop over Obj and maps
+  
+  for(const key of Object.keys(personObj)){
+    const value = personObj[key];
+    
+    console.log(`${key} :- ${value}`);
+  }
+  
+  for(const [key,value] of peronMap){
+    console.log(`${key} :- ${value}`);
+  }
+  
+  // console.log(personObj);
+  // console.log(peronMap);
+
+  // perfect json string
+  console.log(JSON.stringify(personObj));
+
+}
+
+// mapsVsObj()
+
+
+
+// The Fancy way to Access Items by their index in JS:----
+
+function accessItems(){
+
+  const colors = ["red","green","blue"];
+  console.log(colors.at(-1));
+  console.log(colors[(colors.length)-1]);
+  console.log(colors.slice(-1)[0]);
+  
+   }
+  
+// accessItems()
